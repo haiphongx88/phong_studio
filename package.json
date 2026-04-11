@@ -1,0 +1,27 @@
+{
+  "name": "phong-studio",
+  "version": "1.0.0",
+  "description": "EOS Studio Lab - Portfolio website using HTML5 UP Multiverse template",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haiphongx88/phong_studio.git"
+  },
+  "keywords": [
+    "portfolio",
+    "static-site",
+    "html5"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/haiphongx88/phong_studio/issues"
+  },
+  "homepage": "https://github.com/haiphongx88/phong_studio#readme",
+  "dependencies": {
+    "@vercel/speed-insights": "^1.0.14"
+  }
+}
