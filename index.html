@@ -9,80 +9,104 @@
         :root {
             --bg: #050505;
             --text: #ffffff;
-            --accent: #ff6600;
+            --accent: #ff6600; /* Lab Orange */
             --subtext: #a0a0a0;
             --border: rgba(255, 255, 255, 0.1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background-color: var(--bg); color: var(--text); font-family: 'Space Grotesk', sans-serif; line-height: 1.6; }
+        body { background-color: var(--bg); color: var(--text); font-family: 'Space Grotesk', sans-serif; line-height: 1.6; overflow-x: hidden; }
 
-        /* Smooth Scroll */
-        html { scroll-behavior: smooth; }
-
-        /* Navigation */
         nav { padding: 30px; position: fixed; width: 100%; top: 0; display: flex; justify-content: space-between; z-index: 100; backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
         .logo { font-family: 'JetBrains Mono', monospace; font-weight: 700; color: var(--accent); letter-spacing: 2px; }
 
-        /* Main Video Embed */
         .video-container { width: 100%; height: 80vh; background: #000; display: flex; align-items: center; justify-content: center; overflow: hidden; border-bottom: 1px solid var(--border); margin-top: 80px;}
-        iframe { width: 100%; height: 100%; border: none; opacity: 0.8; }
+        iframe { width: 100%; height: 100%; border: none; opacity: 0.8; pointer-events: none; }
 
-        /* Gallery Headers */
-        .section-title { padding: 80px 40px 20px; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--accent); text-transform: uppercase; letter-spacing: 4px; }
+        /* Section 2 Styling */
+        .section-header { padding: 80px 40px 40px; }
+        .section-title { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--accent); text-transform: uppercase; letter-spacing: 4px; margin-bottom: 10px; }
+        .section-sub { font-size: 1.1rem; color: var(--subtext); max-width: 600px; font-weight: 300; }
 
-        /* Professional Gallery Grid */
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(45%, 1fr)); gap: 10px; padding: 0 10px 80px; }
+        /* 4-Column Pipeline Grid */
+        .pipeline-grid { 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 15px; 
+            padding: 0 40px 100px; 
+        }
+
         .gallery-item { position: relative; overflow: hidden; aspect-ratio: 16 / 9; background: #111; border: 1px solid var(--border); }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1); filter: grayscale(30%); }
-        .gallery-item:hover img { transform: scale(1.05); filter: grayscale(0%); }
-        .gallery-label { position: absolute; bottom: 20px; left: 20px; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; background: rgba(0,0,0,0.8); padding: 5px 10px; border: 1px solid var(--accent); }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; filter: grayscale(100%); opacity: 0.7; }
+        .gallery-item:hover img { transform: scale(1.05); filter: grayscale(0%); opacity: 1; }
+        
+        .gallery-label { 
+            position: absolute; 
+            bottom: 15px; 
+            left: 15px; 
+            font-family: 'JetBrains Mono', monospace; 
+            font-size: 0.65rem; 
+            background: rgba(0,0,0,0.9); 
+            padding: 4px 8px; 
+            border-left: 2px solid var(--accent);
+            letter-spacing: 1px;
+        }
 
-        .footer { padding: 100px 20px; text-align: center; border-top: 1px solid var(--border); font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: #444; }
+        .footer { padding: 80px 20px; text-align: center; border-top: 1px solid var(--border); font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: #444; letter-spacing: 1px; }
+
+        /* Mobile Optimization */
+        @media (max-width: 1024px) {
+            .pipeline-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 600px) {
+            .pipeline-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
 
     <nav>
         <div class="logo">EOS_LAB.v01</div>
-        <div class="contact-link"><a href="mailto:phong.dao@eosstudiolab.com" style="color:white; text-decoration:none; font-size: 0.8rem;">CONTACT</a></div>
+        <div class="contact-link"><a href="mailto:phong.dao@eosstudiolab.com" style="color:white; text-decoration:none; font-size: 0.8rem; font-family: 'JetBrains Mono';">CONNECT_LAB</a></div>
     </nav>
 
     <div class="video-container">
-    <iframe 
-        src="https://www.youtube.com/embed/66UeYBp-sZk?autoplay=1&mute=1&loop=1&playlist=66UeYBp-sZk&controls=0&modestbranding=1&rel=0" 
-        title="EOS Studio Lab ShowReel 2026"
-        allow="autoplay; encrypted-media" 
-        allowfullscreen>
-    </iframe>
-</div>
-
-    <div class="section-title">// ARCHIVE_01: INDUSTRIAL_MACHINES</div>
-    <div class="gallery-grid">
-        <div class="gallery-item">
-            <img src="machine-1.jpg" alt="Machine Render 1">
-            <div class="gallery-label">PROT_TYPE_01</div>
-        </div>
-        <div class="gallery-item">
-            <img src="machine-2.jpg" alt="Machine Render 2">
-            <div class="gallery-label">PROT_TYPE_02</div>
-        </div>
+        <iframe 
+            src="https://www.youtube.com/embed/66UeYBp-sZk?autoplay=1&mute=1&loop=1&playlist=66UeYBp-sZk&controls=0&modestbranding=1&rel=0" 
+            title="EOS Studio Lab ShowReel 2026"
+            allow="autoplay; encrypted-media">
+        </iframe>
     </div>
 
-    <div class="section-title">// ARCHIVE_02: CELESTIAL_ATMOSPHERES</div>
-    <div class="gallery-grid">
+    <header class="section-header">
+        <div class="section-title">// SYSTEM_LOGIC: THE PRODUCTION PIPELINE</div>
+        <p class="section-sub">From raw engineering data to cinematic finality. We follow a strict 4-stage protocol to ensure structural fidelity.</p>
+    </header>
+
+    <div class="pipeline-grid">
         <div class="gallery-item">
-            <img src="galaxy-1.jpg" alt="Galaxy Render 1">
-            <div class="gallery-label">ASTRO_SIM_01</div>
+            <img src="/images/fulls/01.jpg" alt="Wireframe Structural Mesh">
+            <div class="gallery-label">PHASE_01 // WIREFRAME</div>
         </div>
+        
         <div class="gallery-item">
-            <img src="galaxy-2.jpg" alt="Galaxy Render 2">
-            <div class="gallery-label">ASTRO_SIM_02</div>
+            <img src="/images/fulls/02.jpg" alt="Clay Lighting Logic">
+            <div class="gallery-label">PHASE_02 // CLAY</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="/images/fulls/03.jpg" alt="Raw Material Truth">
+            <div class="gallery-label">PHASE_03 // RAW_RENDER</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="/images/fulls/04.jpg" alt="Cinematic Output">
+            <div class="gallery-label">PHASE_04 // FINAL_COMP</div>
         </div>
     </div>
 
     <footer class="footer">
-        LOC: HCMC_VN // CORE: HOUDINI_FUSION // © 2026 EOS_LAB
+        LOC: HCMC_VN // CORE: HOUDINI_FUSION // EST: 2026 // © EOS_LAB_STUDIO
     </footer>
 
 </body>
