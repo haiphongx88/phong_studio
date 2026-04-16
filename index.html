@@ -21,8 +21,30 @@
         nav { padding: 30px; position: fixed; width: 100%; top: 0; display: flex; justify-content: space-between; z-index: 100; backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
         .logo { font-family: 'JetBrains Mono', monospace; font-weight: 700; color: var(--accent); letter-spacing: 2px; }
 
-        /* Hero */
-        .video-container { width: 100%; height: 80vh; background: #000; display: flex; align-items: center; justify-content: center; overflow: hidden; border-bottom: 1px solid var(--border); margin-top: 80px; }
+        /* HERO SECTION (SECTION 1) - FIXED LOGIC */
+        .hero-container { 
+            width: 100%; 
+            height: 85vh; /* Controlled height for the showreel */
+            background: #000; 
+            position: relative;
+            margin-top: 80px;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* This is the secret for full-screen YouTube */
+        .hero-container iframe { 
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100vw;
+            height: 56.25vw; /* Maintains 16:9 aspect ratio */
+            min-height: 85vh;
+            min-width: 151.11vh; /* (16/9 * 85) */
+            transform: translate(-50%, -50%);
+            border: none;
+            pointer-events: none; /* Makes it feel like a background video */
+        }
         
         /* Headers */
         .section-header { padding: 100px 20px 40px; text-align: center; display: flex; flex-direction: column; align-items: center; }
@@ -66,8 +88,8 @@
         <div class="contact-link"><a href="mailto:phong.dao@eosstudiolab.com" style="color:white; text-decoration:none; font-size: 0.8rem; font-family: 'JetBrains Mono';">CONNECT_LAB</a></div>
     </nav>
 
-    <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/66UeYBp-sZk?autoplay=1&mute=1&loop=1&playlist=66UeYBp-sZk&controls=1&modestbranding=1" allow="autoplay; encrypted-media"></iframe>
+    <div class="hero-container">
+        <iframe src="https://www.youtube.com/embed/66UeYBp-sZk?autoplay=1&mute=1&loop=1&playlist=66UeYBp-sZk&controls=0&modestbranding=1&rel=0&showinfo=0" allow="autoplay; encrypted-media"></iframe>
     </div>
 
     <header class="section-header">
@@ -94,45 +116,6 @@
         </div>
     </div>
 
-<header class="section-header">
-    <div class="section-title">MOTION: BRAND IMPACT</div>
-    <p class="section-sub">We believe movement is the bridge to consumer trust. Our simulations are designed to command attention and define market authority.</p>
-</header>
-
-<div class="motion-grid">
-    <div class="gallery-item">
-        <iframe 
-            src="https://www.youtube.com/embed/COtan_GhzH8?autoplay=0&mute=1&controls=1&modestbranding=1&rel=0" 
-            style="width:100%; height:100%; border:none; display:block;"
-            allow="autoplay; encrypted-media" 
-            allowfullscreen>
-        </iframe>
-        <div class="gallery-label">UNCONSCIOUS_AUTHORITY</div>
-    </div>
-
-    <div class="gallery-item">
-        <iframe 
-            src="https://www.youtube.com/embed/COtan_GhzH8?autoplay=0&mute=1&controls=1&modestbranding=1&rel=0" 
-            style="width:100%; height:100%; border:none; display:block;"
-            allow="autoplay; encrypted-media" 
-            allowfullscreen>
-        </iframe>
-        <div class="gallery-label">KINETIC_IMPACT</div>
-    </div>
-
-   <div class="gallery-item">
-    <iframe 
-        src="https://www.youtube.com/embed/gR73UyphaqU?autoplay=0&mute=1&controls=1&modestbranding=1&rel=0" 
-        style="width:100%; height:100%; border:none; display:block;"
-        allow="autoplay; encrypted-media" 
-        allowfullscreen>
-    </iframe>
-    <div class="gallery-label">ENGINEERING_ELEGANCE</div>
-</div>
-
-    <footer class="footer">
-        LOC: HCMC_VN // CORE: HOUDINI_FUSION // EST: 2026 // © EOS_LAB_STUDIO
-    </footer>
-
-</body>
-</html>
+    <header class="section-header">
+        <div class="section-title">MOTION: BRAND IMPACT</div>
+        <p class="section-sub">We believe movement is the bridge to consumer
