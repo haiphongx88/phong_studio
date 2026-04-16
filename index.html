@@ -76,25 +76,30 @@
 
         .footer { padding: 80px 20px; text-align: center; border-top: 1px solid var(--border); font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: #444; letter-spacing: 1px; }
 
-        @media (max-width: 1024px) { .pipeline-grid, .motion-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 600px) { .pipeline-grid, .motion-grid { grid-template-columns: 1fr; } }
-        /* Mobile Optimization for Hero Video */
         @media (max-width: 768px) {
-            .video-container {
-                height: 60vh; /* Shorter height so mobile users see the content faster */
-            }
-            .video-container iframe {
-                width: 177.78vh; /* Forces the video to cover the screen without black bars */
-            }
-            .section-title {
-                font-size: 0.75rem; 
-                letter-spacing: 4px;
-            }
-            .section-sub {
-                font-size: 0.95rem;
-                padding: 0 10px;
-            }
-        }
+    .video-container {
+        height: 50vh; /* A bit shorter is better for mobile reach */
+    }
+    .video-container iframe {
+        /* This is the magic fix: */
+        width: 177.78vh; 
+        min-height: 0; /* Clears the desktop 90vh */
+        min-width: 0;  /* Clears the desktop 160vh */
+        height: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .section-title {
+        font-size: 0.75rem;
+        letter-spacing: 4px;
+    }
+    .section-sub {
+        font-size: 0.9rem;
+        padding: 0 20px;
+        line-height: 1.6;
+    }
+}
     </style>
 </head>
 <body>
