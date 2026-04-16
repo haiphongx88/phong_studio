@@ -76,33 +76,14 @@
 
         .footer { padding: 80px 20px; text-align: center; border-top: 1px solid var(--border); font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: #444; letter-spacing: 1px; }
 
-        /* MOBILE FIX */
+        /* --- MOBILE "ABSOLUTE POWER" FIX --- */
         @media (max-width: 768px) {
             .video-container {
-                height: 35vh; 
-                margin-top: 60px;
+                height: 35vh !important; 
+                margin-top: 60px !important;
             }
             .hero-iframe {
                 width: 177.78vh !important; 
-                min-height: 0 !important; 
-                min-width: 0 !important; 
                 height: 100% !important;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-            }
-            .pipeline-grid, .motion-grid { grid-template-columns: 1fr; padding: 0 20px 60px; }
-            .section-header { padding: 60px 20px 30px; }
-            .section-title { font-size: 0.7rem; letter-spacing: 3px; }
-            .section-sub { font-size: 0.85rem; padding: 0 15px; line-height: 1.5; }
-        }
-    </style>
-</head>
-<body>
-
-    <nav>
-        <div class="logo">EOS_LAB.v01</div>
-        <div class="contact-link"><a href="mailto:phong.dao@eosstudiolab.com" style="color:white; text-decoration:none; font-size: 0.8rem; font-family: 'JetBrains Mono';">CONNECT_LAB</a></div>
-    </nav>
-
-    <div class="video
+                min-height: 0 !important; 
+                min-width:
