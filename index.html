@@ -76,28 +76,31 @@
 
         .footer { padding: 80px 20px; text-align: center; border-top: 1px solid var(--border); font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: #444; letter-spacing: 1px; }
 
-        @media (max-width: 768px) {
+     @media (max-width: 768px) {
     .video-container {
-        height: 50vh; /* A bit shorter is better for mobile reach */
+        height: 35vh; /* This makes the video container 30% smaller */
+        margin-top: 60px; /* Tighter gap for the mobile nav */
     }
     .video-container iframe {
-        /* This is the magic fix: */
         width: 177.78vh; 
-        min-height: 0; /* Clears the desktop 90vh */
-        min-width: 0;  /* Clears the desktop 160vh */
+        min-height: 0; 
+        min-width: 0; 
         height: 100%;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
     }
+    .section-header {
+        padding: 60px 20px 30px; /* Reduces the massive white space between sections */
+    }
     .section-title {
-        font-size: 0.75rem;
-        letter-spacing: 4px;
+        font-size: 0.7rem;
+        letter-spacing: 3px;
     }
     .section-sub {
-        font-size: 0.9rem;
-        padding: 0 20px;
-        line-height: 1.6;
+        font-size: 0.85rem;
+        padding: 0 15px;
+        line-height: 1.5;
     }
 }
     </style>
