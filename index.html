@@ -78,6 +78,39 @@
 
         @media (max-width: 1024px) { .pipeline-grid, .motion-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 600px) { .pipeline-grid, .motion-grid { grid-template-columns: 1fr; } }
+        /* --- MOBILE REFINEMENT --- */
+@media (max-width: 768px) {
+    /* Shrinks the Hero container height */
+    .video-container { 
+        height: 40vh !important; 
+        margin-top: 60px !important; 
+    }
+
+    /* Scales only the Hero video, leaves Section 3 alone */
+    .hero-iframe {
+        width: 177.78vh !important; 
+        height: 100% !important;
+        min-height: 0 !important; 
+        min-width: 0 !important; 
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+    }
+
+    /* Stack the grids vertically on phones */
+    .pipeline-grid, .motion-grid { 
+        grid-template-columns: 1fr !important; 
+        padding: 0 20px 60px !important; 
+    }
+
+    /* Tightens up the text spacing for small screens */
+    .section-header { padding: 60px 20px 30px !important; }
+    .section-title { font-size: 0.75rem !important; }
+    .section-sub { font-size: 0.9rem !important; }
+    
+    /* Ensures the Archive and Footer stay centered and separate */
+    footer, section { clear: both !important; width: 100% !important; }
+}
     </style>
 </head>
 <body>
@@ -87,9 +120,9 @@
         <div class="contact-link"><a href="mailto:phong.dao@eosstudiolab.com" style="color:white; text-decoration:none; font-size: 0.8rem; font-family: 'JetBrains Mono';">CONNECT_LAB</a></div>
     </nav>
 
-    <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/66UeYBp-sZk?autoplay=1&mute=1&loop=1&playlist=66UeYBp-sZk&controls=0&modestbranding=1&rel=0" allow="autoplay; encrypted-media"></iframe>
-    </div>
+   <div class="video-container">
+    <iframe class="hero-iframe" src="https://www.youtube.com/embed/66UeYBp-sZk?autoplay=1&mute=1&loop=1&playlist=66UeYBp-sZk&controls=0&modestbranding=1&rel=0&playsinline=1" allow="autoplay; encrypted-media"></iframe>
+</div>
 
     <header class="section-header">
         <div class="section-title">// SYSTEM_LOGIC: THE PRODUCTION PIPELINE</div>
