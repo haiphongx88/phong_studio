@@ -78,6 +78,23 @@
 
         @media (max-width: 1024px) { .pipeline-grid, .motion-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 600px) { .pipeline-grid, .motion-grid { grid-template-columns: 1fr; } }
+        /* Mobile Optimization for Hero Video */
+        @media (max-width: 768px) {
+            .video-container {
+                height: 60vh; /* Shorter height so mobile users see the content faster */
+            }
+            .video-container iframe {
+                width: 177.78vh; /* Forces the video to cover the screen without black bars */
+            }
+            .section-title {
+                font-size: 0.75rem; 
+                letter-spacing: 4px;
+            }
+            .section-sub {
+                font-size: 0.95rem;
+                padding: 0 10px;
+            }
+        }
     </style>
 </head>
 <body>
