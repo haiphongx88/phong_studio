@@ -58,29 +58,55 @@
         }
 
         /* Section 3: Motion Grid (3 Columns) */
-        .motion-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            padding: 0 40px 100px;
-        }
+.motion-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 0 40px 100px;
+}
 
-        /* Common Gallery Items */
-        .gallery-item { position: relative; overflow: hidden; aspect-ratio: 16 / 9; background: #111; border: 1px solid var(--border); }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; filter: grayscale(100%); opacity: 0.7; }
-        .gallery-item:hover img { transform: scale(1.05); filter: grayscale(0%); opacity: 1; }
-        
-        .gallery-label { 
-            position: absolute; 
-            bottom: 15px; 
-            left: 15px; 
-            font-family: 'JetBrains Mono', monospace; 
-            font-size: 0.65rem; 
-            background: rgba(0,0,0,0.9); 
-            padding: 4px 8px; 
-            border-left: 2px solid var(--accent);
-            letter-spacing: 1px;
-        }
+/* Common Gallery Items (Containers) */
+.gallery-item { 
+    position: relative; 
+    overflow: hidden; 
+    aspect-ratio: 16 / 9; 
+    background: #000; 
+    border: 1px solid var(--border); 
+}
+
+/* Apply effects to both Images and Videos */
+.gallery-item img, 
+.gallery-item video { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1), filter 0.6s ease, opacity 0.6s ease; 
+    filter: grayscale(100%); 
+    opacity: 0.7; 
+}
+
+/* Hover State: Bring back color, full opacity, and slight zoom */
+.gallery-item:hover img, 
+.gallery-item:hover video { 
+    transform: scale(1.05); 
+    filter: grayscale(0%); 
+    opacity: 1; 
+}
+
+/* Label Styling */
+.gallery-label { 
+    position: absolute; 
+    bottom: 15px; 
+    left: 15px; 
+    font-family: 'JetBrains Mono', monospace; 
+    font-size: 0.65rem; 
+    background: rgba(0,0,0,0.9); 
+    padding: 4px 8px; 
+    border-left: 2px solid var(--accent);
+    letter-spacing: 1px;
+    z-index: 5;
+    pointer-events: none; /* Allows mouse to "see through" the label to trigger the video play */
+}
 
         .footer { padding: 80px 20px; text-align: center; border-top: 1px solid var(--border); font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: #444; letter-spacing: 1px; }
 
