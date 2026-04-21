@@ -126,6 +126,87 @@
     </div>
 </div>
 
+<section class="section-header" style="padding: 100px 20px; background: #080808;">
+        <div class="section-title">THE PHYSICAL-DIGITAL LINK</div>
+        <p class="section-sub">
+            Traditional marketing relies on flat imagery. **EOS Studio** builds the bridge between the physical product and digital fascination, ensuring your static assets carry the weight of a physical object.
+        </p>
+    </section>
+
+    <style>
+        .mosaic-gallery { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 15px; 
+            padding: 0 40px 100px; 
+        }
+        .mosaic-item { 
+            position: relative; 
+            overflow: hidden; 
+            background: #111; 
+            border: 1px solid var(--border); 
+            aspect-ratio: 1 / 1; 
+        }
+        .mosaic-item img { 
+            width: 100%; height: 100%; object-fit: cover; transition: 0.5s; 
+        }
+        .mosaic-item:hover img { transform: scale(1.1); filter: grayscale(0); }
+        .mosaic-item:nth-child(2n) { aspect-ratio: 3/4; } /* Adds a nice "Pinterest" variation */
+    </style>
+
+    <div class="mosaic-gallery">
+        <div class="mosaic-item"><img src="images/fulls/gallery_01.jpg" alt="Still 01"></div>
+        <div class="mosaic-item"><img src="images/fulls/gallery_02.jpg" alt="Still 02"></div>
+        <div class="mosaic-item"><img src="images/fulls/gallery_03.jpg" alt="Still 03"></div>
+        <div class="mosaic-item"><img src="images/fulls/gallery_04.jpg" alt="Still 04"></div>
+        <div class="mosaic-item"><img src="images/fulls/gallery_05.jpg" alt="Still 05"></div>
+        <div class="mosaic-item"><img src="images/fulls/gallery_06.jpg" alt="Still 06"></div>
+    </div>
+
+    <section class="section-header">
+        <div class="section-title">MOTION: THE AI-AGE STANDARD</div>
+        <p class="section-sub">In the world of AI-driven content, motion is the new way to define brand authority. We create 4D simulations that impossible to ignore.</p>
+    </header>
+
+    <style>
+        .gif-grid { 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 20px; 
+            padding: 0 40px 100px; 
+            max-width: 1200px; 
+            margin: 0 auto;
+        }
+        .gif-item { 
+            border: 1px solid var(--accent); 
+            overflow: hidden; 
+            aspect-ratio: 16 / 9; 
+            background: #000;
+        }
+        .gif-item img { width: 100%; height: 100%; object-fit: cover; }
+        
+        @media (max-width: 768px) { .gif-grid { grid-template-columns: 1fr; } }
+    </style>
+
+    <div class="gif-grid">
+        <div class="gif-item">
+            <img src="images/motion/01.gif" alt="Motion 01">
+            <div class="gallery-label">KINETIC_FLOW</div>
+        </div>
+        <div class="gif-item">
+            <img src="images/motion/02.gif" alt="Motion 02">
+            <div class="gallery-label">DYNAMICS_01</div>
+        </div>
+        <div class="gif-item">
+            <img src="images/motion/03.gif" alt="Motion 03">
+            <div class="gallery-label">ATMOSPHERIC_SIM</div>
+        </div>
+        <div class="gif-item">
+            <img src="images/motion/04.gif" alt="Motion 04">
+            <div class="gallery-label">FINAL_STRIKE</div>
+        </div>
+    </div>
+
 <header class="section-header">
     <div class="section-title">MOTION: BRAND IMPACT</div>
     <p class="section-sub">Movement is the bridge to consumer trust. Our simulations are designed to command attention.</p>
