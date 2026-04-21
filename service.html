@@ -33,11 +33,9 @@
         /* ZigZag Layout Styles */
         .zigzag-container { max-width: 1200px; margin: 0 auto; padding: 0 40px 100px; }
         .zigzag-row { display: flex; align-items: center; gap: 60px; margin-bottom: 100px; }
-        
         .zigzag-text { flex: 1; }
         .zigzag-title { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--accent); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 15px; border-left: 2px solid var(--accent); padding-left: 15px; }
         .zigzag-desc { font-size: 1rem; color: var(--subtext); font-weight: 300; line-height: 1.8; }
-
         .zigzag-image { flex: 1.2; aspect-ratio: 16 / 9; overflow: hidden; border: 1px solid var(--border); background: #111; }
         .zigzag-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
         .zigzag-row:hover .zigzag-image img { transform: scale(1.05); }
@@ -47,10 +45,18 @@
         .zigzag-row:nth-child(even) .zigzag-text { text-align: right; }
         .zigzag-row:nth-child(even) .zigzag-title { border-left: none; border-right: 2px solid var(--accent); padding-left: 0; padding-right: 15px; }
 
-        /* Motion Grid */
-        .motion-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 0 40px 100px; }
+        /* Mosaic Gallery */
+        .mosaic-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; padding: 0 40px 100px; }
+        .mosaic-item { position: relative; overflow: hidden; background: #111; border: 1px solid var(--border); aspect-ratio: 1 / 1; }
+        .mosaic-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .mosaic-item:hover img { transform: scale(1.1); }
+
+        /* Grids (GIFs and YouTube) */
+        .motion-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; padding: 0 40px 100px; max-width: 1200px; margin: 0 auto; }
+        .video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 0 40px 100px; }
+        
         .gallery-item { position: relative; overflow: hidden; aspect-ratio: 16 / 9; background: #111; border: 1px solid var(--border); }
-        .gallery-item iframe { width: 100%; height: 100%; border: none; }
+        .gallery-item img, .gallery-item iframe { width: 100%; height: 100%; object-fit: cover; border: none; }
         .gallery-label { position: absolute; bottom: 15px; left: 15px; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; background: rgba(0,0,0,0.9); padding: 4px 8px; border-left: 2px solid var(--accent); z-index: 5; }
 
         .footer { padding: 80px 20px; text-align: center; border-top: 1px solid var(--border); font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: #444; letter-spacing: 1px; }
@@ -59,175 +65,94 @@
             .zigzag-row { flex-direction: column !important; gap: 30px; margin-bottom: 60px; }
             .zigzag-row:nth-child(even) .zigzag-text { text-align: left; }
             .zigzag-row:nth-child(even) .zigzag-title { border-left: 2px solid var(--accent); border-right: none; padding-left: 15px; padding-right: 0; }
-            .motion-grid { grid-template-columns: 1fr; padding: 0 20px 60px; }
+            .motion-grid, .video-grid { grid-template-columns: 1fr; padding: 0 20px 60px; }
         }
     </style>
 </head>
 <body>
 
 <nav>
-    <div class="logo">
-        <a href="/">EOS studio lab</a>
-    </div>
+    <div class="logo"><a href="/">EOS studio lab</a></div>
     <div class="contact-link" style="display: flex; align-items: center; gap: 15px;">
         <a href="mailto:phong.dao@eosstudiolab.com" style="color:white; text-decoration:none; font-size: 0.8rem; font-family: 'JetBrains Mono';">CONNECT_LAB</a>
         <a href="https://wa.me/message/RRXLEEOCOKYHI1" target="_blank">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .004 5.412.001 12.049c0 2.12.54 4.189 1.562 6.033L0 24l6.102-1.6c1.785.973 3.8 1.487 5.857 1.488h.005c6.637 0 12.048-5.412 12.051-12.05a11.816 11.816 0 00-3.565-8.483" fill="#25D366"/>
-            </svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .004 5.412.001 12.049c0 2.12.54 4.189 1.562 6.033L0 24l6.102-1.6c1.785.973 3.8 1.487 5.857 1.488h.005c6.637 0 12.048-5.412 12.051-12.05a11.816 11.816 0 00-3.565-8.483" fill="#25D366"/></svg>
         </a>
     </div>
 </nav>
 
 <header class="section-header">
     <div class="section-title">THE PRODUCTION PROTOCOL</div>
-    <p class="section-sub">A strict four-stage vertical framework ensuring engineering accuracy and cinematic fidelity.</p>
+    <p class="section-sub">A strict four-stage framework ensuring engineering accuracy and cinematic fidelity.</p>
 </header>
 
 <div class="zigzag-container">
     <div class="zigzag-row">
         <div class="zigzag-text">
             <div class="zigzag-title">STRUCTURAL TOPOLOGY & MESH INTEGRITY</div>
-            <p class="zigzag-desc">We don't just model; we engineer. By maintaining strict quad-based topology and optimized edge loops, we guarantee a flawless foundation for advanced look-dev. No shading artifacts, no pinched geometry—just pure technical precision</p>
+            <p class="zigzag-desc">We don't just model; we engineer. By maintaining strict quad-based topology and optimized edge loops, we guarantee a flawless foundation for advanced look-dev.</p>
         </div>
-        <div class="zigzag-image">
-            <img src="images/fulls/01.jpg" alt="Wireframe">
-        </div>
+        <div class="zigzag-image"><img src="images/fulls/01.jpg" alt="Wireframe"></div>
     </div>
-
     <div class="zigzag-row">
         <div class="zigzag-text">
-            <div class="zigzag-title"SURFACE FIDELITY & CURVATURE ANALYSIS</div>
-            <p class="zigzag-desc">Before light meets material, we validate the form. Our clay-stage protocol focuses on perfecting the silhouette and surface transitions, ensuring the digital asset mirrors the physical product’s true engineering specs.</p>
+            <div class="zigzag-title">SURFACE FIDELITY & CURVATURE ANALYSIS</div>
+            <p class="zigzag-desc">Before light meets material, we validate the form. Our clay-stage protocol focuses on perfecting the silhouette and surface transitions.</p>
         </div>
-        <div class="zigzag-image">
-            <img src="images/fulls/Section2_Clay_webp.webp" alt="Clay Render">
-        </div>
+        <div class="zigzag-image"><img src="images/fulls/Section2_Clay_webp.webp" alt="Clay Render"></div>
     </div>
-
     <div class="zigzag-row">
         <div class="zigzag-text">
             <div class="zigzag-title">PHOTOMETRIC LIGHTING & MATERIAL RESPONSE</div>
-            <p class="zigzag-desc">We deploy physically accurate lighting setups to simulate real-world behavior. By calculating light transport and material refraction with surgical detail, we bridge the gap between a 3D file and a tangible, high-end product.</p>
+            <p class="zigzag-desc">We deploy physically accurate lighting setups to simulate real-world behavior, bridging the gap between a 3D file and a tangible product.</p>
         </div>
-        <div class="zigzag-image">
-            <img src="images/fulls/Section2_Raw_webp.webp" alt="Raw Render">
-        </div>
+        <div class="zigzag-image"><img src="images/fulls/Section2_Raw_webp.webp" alt="Raw Render"></div>
     </div>
-
     <div class="zigzag-row">
         <div class="zigzag-text">
             <div class="zigzag-title">CINEMATIC FINALITY & BRAND AUTHORITY</div>
-            <p class="zigzag-desc">The final strike. We transform raw technical data into unmistakable market authority. Through advanced compositing and color science, EOS LAB delivers visual assets that command attention and define the standard for 2026.</p>
+            <p class="zigzag-desc">The final strike. We transform raw technical data into unmistakable market authority through advanced compositing and color science.</p>
         </div>
-        <div class="zigzag-image">
-            <img src="images/fulls/Section2_CompImg_webp.webp" alt="Final Comp">
-        </div>
+        <div class="zigzag-image"><img src="images/fulls/Section2_CompImg_webp.webp" alt="Final Comp"></div>
     </div>
 </div>
 
-<section class="section-header" style="padding: 100px 20px; background: #080808;">
-        <div class="section-title">THE PHYSICAL-DIGITAL LINK</div>
-        <p class="section-sub">
-            Traditional marketing relies on flat imagery. **EOS Studio** builds the bridge between the physical product and digital fascination, ensuring your static assets carry the weight of a physical object.
-        </p>
-    </section>
+<section class="section-header" style="background: #080808; padding: 100px 20px; margin-bottom: 40px;">
+    <div class="section-title">THE PHYSICAL-DIGITAL LINK</div>
+    <p class="section-sub">Traditional marketing relies on flat imagery. EOS Studio builds the bridge between physical products and digital fascination.</p>
+</section>
 
-    <style>
-        .mosaic-gallery { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 15px; 
-            padding: 0 40px 100px; 
-        }
-        .mosaic-item { 
-            position: relative; 
-            overflow: hidden; 
-            background: #111; 
-            border: 1px solid var(--border); 
-            aspect-ratio: 1 / 1; 
-        }
-        .mosaic-item img { 
-            width: 100%; height: 100%; object-fit: cover; transition: 0.5s; 
-        }
-        .mosaic-item:hover img { transform: scale(1.1); filter: grayscale(0); }
-        .mosaic-item:nth-child(2n) { aspect-ratio: 3/4; } /* Adds a nice "Pinterest" variation */
-    </style>
-
-    <div class="mosaic-gallery">
-        <div class="mosaic-item"><img src="images/fulls/gallery_01.jpg" alt="Still 01"></div>
-        <div class="mosaic-item"><img src="images/fulls/gallery_02.jpg" alt="Still 02"></div>
-        <div class="mosaic-item"><img src="images/fulls/gallery_03.jpg" alt="Still 03"></div>
-        <div class="mosaic-item"><img src="images/fulls/gallery_04.jpg" alt="Still 04"></div>
-        <div class="mosaic-item"><img src="images/fulls/gallery_05.jpg" alt="Still 05"></div>
-        <div class="mosaic-item"><img src="images/fulls/gallery_06.jpg" alt="Still 06"></div>
-    </div>
-
-    <section class="section-header">
-        <div class="section-title">MOTION: THE AI-AGE STANDARD</div>
-        <p class="section-sub">In the world of AI-driven content, motion is the new way to define brand authority. We create 4D simulations that impossible to ignore.</p>
-    </header>
-
-    <style>
-        .gif-grid { 
-            display: grid; 
-            grid-template-columns: repeat(2, 1fr); 
-            gap: 20px; 
-            padding: 0 40px 100px; 
-            max-width: 1200px; 
-            margin: 0 auto;
-        }
-        .gif-item { 
-            border: 1px solid var(--accent); 
-            overflow: hidden; 
-            aspect-ratio: 16 / 9; 
-            background: #000;
-        }
-        .gif-item img { width: 100%; height: 100%; object-fit: cover; }
-        
-        @media (max-width: 768px) { .gif-grid { grid-template-columns: 1fr; } }
-    </style>
-
-    <div class="gif-grid">
-        <div class="gif-item">
-            <img src="images/motion/01.gif" alt="Motion 01">
-            <div class="gallery-label">KINETIC_FLOW</div>
-        </div>
-        <div class="gif-item">
-            <img src="images/motion/02.gif" alt="Motion 02">
-            <div class="gallery-label">DYNAMICS_01</div>
-        </div>
-        <div class="gif-item">
-            <img src="images/motion/03.gif" alt="Motion 03">
-            <div class="gallery-label">ATMOSPHERIC_SIM</div>
-        </div>
-        <div class="gif-item">
-            <img src="images/motion/04.gif" alt="Motion 04">
-            <div class="gallery-label">FINAL_STRIKE</div>
-        </div>
-    </div>
+<div class="mosaic-gallery">
+    <div class="mosaic-item"><img src="images/fulls/gallery_01.jpg" alt="Still 01"></div>
+    <div class="mosaic-item"><img src="images/fulls/gallery_02.jpg" alt="Still 02"></div>
+    <div class="mosaic-item"><img src="images/fulls/gallery_03.jpg" alt="Still 03"></div>
+    <div class="mosaic-item"><img src="images/fulls/gallery_04.jpg" alt="Still 04"></div>
+    <div class="mosaic-item"><img src="images/fulls/gallery_05.jpg" alt="Still 05"></div>
+    <div class="mosaic-item"><img src="images/fulls/gallery_06.jpg" alt="Still 06"></div>
+</div>
 
 <header class="section-header">
-    <div class="section-title">MOTION: BRAND IMPACT</div>
-    <p class="section-sub">Movement is the bridge to consumer trust. Our simulations are designed to command attention.</p>
+    <div class="section-title">MOTION: THE AI-AGE STANDARD</div>
+    <p class="section-sub">In an AI-driven world, motion defines brand authority. We create 4D simulations that are impossible to ignore.</p>
 </header>
-
 <div class="motion-grid">
-    <div class="gallery-item">
-        <iframe src="https://www.youtube.com/embed/COtan_GhzH8?autoplay=0&mute=1&controls=1&modestbranding=1&rel=0" allowfullscreen></iframe>
-        <div class="gallery-label">UNCONSCIOUS_AUTHORITY</div>
-    </div>
-    <div class="gallery-item">
-        <iframe src="https://www.youtube.com/embed/hAfY6uPnezA?autoplay=0&mute=1&controls=1&modestbranding=1&rel=0" allowfullscreen></iframe>
-        <div class="gallery-label">KINETIC_IMPACT</div>
-    </div>
-    <div class="gallery-item">
-        <iframe src="https://www.youtube.com/embed/gR733UyphaqU?autoplay=0&mute=1&controls=1&modestbranding=1&rel=0" allowfullscreen></iframe>
-        <div class="gallery-label">ENGINEERING_ELEGANCE</div>
-    </div>
+    <div class="gallery-item"><img src="images/motion/01.gif" alt="Motion 01"><div class="gallery-label">KINETIC_FLOW</div></div>
+    <div class="gallery-item"><img src="images/motion/02.gif" alt="Motion 02"><div class="gallery-label">DYNAMICS_01</div></div>
+    <div class="gallery-item"><img src="images/motion/03.gif" alt="Motion 03"><div class="gallery-label">ATMOSPHERIC_SIM</div></div>
+    <div class="gallery-item"><img src="images/motion/04.gif" alt="Motion 04"><div class="gallery-label">FINAL_STRIKE</div></div>
 </div>
 
-<section class="section-header" style="padding: 100px 20px; text-align: center;">
+<header class="section-header">
+    <div class="section-title">CASE STUDIES: MOTION IMPACT</div>
+    <p class="section-sub">Cinematic simulations designed to command attention and define market authority.</p>
+</header>
+<div class="video-grid">
+    <div class="gallery-item"><iframe src="https://www.youtube.com/embed/COtan_GhzH8?mute=1" allowfullscreen></iframe><div class="gallery-label">UNCONSCIOUS_AUTHORITY</div></div>
+    <div class="gallery-item"><iframe src="https://www.youtube.com/embed/hAfY6uPnezA?mute=1" allowfullscreen></iframe><div class="gallery-label">KINETIC_IMPACT</div></div>
+    <div class="gallery-item"><iframe src="https://www.youtube.com/embed/gR733UyphaqU?mute=1" allowfullscreen></iframe><div class="gallery-label">ENGINEERING_ELEGANCE</div></div>
+</div>
+
+<section class="section-header" style="padding: 100px 20px;">
     <div class="section-title">STUDIO_CATALOGUE</div>
     <p class="section-sub">Access the full library of technical simulations and aesthetic studies.</p>
     <div style="display: flex; gap: 20px; margin-top: 30px; justify-content: center; flex-wrap: wrap;">
