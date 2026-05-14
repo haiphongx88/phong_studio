@@ -50,7 +50,7 @@
 
         /* --- BIG SLOGAN SECTION --- */
         .slogan-section {
-            padding: 120px 20px;
+            padding: 120px 20px 80px;
             text-align: center;
             max-width: 900px;
             margin: 0 auto;
@@ -58,7 +58,58 @@
         .slogan-text { font-size: 1.8rem; font-weight: 300; color: var(--subtext); line-height: 1.4; }
         .slogan-text span { color: var(--text); font-weight: 700; }
 
-        /* --- SPLIT SECTIONS --- */
+        /* --- NEW: THE UNIT LEADERSHIP GRID (LEF IMAGE, RIGHT TEXT/SLOGAN) --- */
+        .leadership-row {
+            display: flex;
+            min-height: 500px;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 0px;
+            align-items: stretch;
+        }
+
+        .leader-image {
+            flex: 1;
+            overflow: hidden;
+            background: #111;
+            border-right: 1px solid var(--border);
+        }
+        .leader-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center; /* Adjust this if the heads are cut off */
+            transition: 0.5s ease;
+        }
+        .leadership-row:hover .leader-image img { transform: scale(1.03); }
+
+        .leader-content {
+            flex: 1;
+            padding: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        .leader-role { font-family: 'JetBrains Mono', monospace; color: var(--accent); font-size: 0.85rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 15px; }
+        
+        /* The Translated "Operator" Slogan */
+        .leader-slogan {
+            font-size: 1.6rem;
+            font-weight: 500;
+            line-height: 1.4;
+            color: var(--text);
+            margin-bottom: 30px;
+            position: relative;
+        }
+        /* Add a subtle quote style */
+        .leader-slogan::before { content: "“"; font-size: 4rem; position: absolute; left: -30px; top: -15px; color: var(--border); font-family: 'Space Grotesk', sans-serif;}
+
+        .leader-name { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1rem; color: var(--subtext); letter-spacing: 1px; }
+        .leader-name span { font-weight: 300; font-size: 0.9rem;}
+
+        /* --- SPLIT SECTIONS (Keep these) --- */
         .split-container { width: 100%; padding: 0; }
         
         .split-row {
@@ -84,16 +135,16 @@
         .split-title { font-size: 2.5rem; text-transform: uppercase; margin-bottom: 20px; line-height: 1; }
         .split-desc { color: var(--subtext); font-size: 1.1rem; max-width: 500px; }
 
-        /* Reverse layout for the second row */
         .row-reverse { flex-direction: row-reverse; }
 
         /* --- MOBILE RESPONSIVE --- */
         @media (max-width: 900px) {
-            .split-row { flex-direction: column; }
-            .split-content { padding: 40px 20px; }
-            .split-image { height: 400px; }
+            .leadership-row, .split-row { flex-direction: column; }
+            .split-content, .leader-content { padding: 40px 20px; }
+            .split-image, .leader-image { height: 400px; width: 100%; border-right: none; border-bottom: 1px solid var(--border); }
             .hero-title { font-size: 3rem; }
             .slogan-text { font-size: 1.4rem; }
+            .leader-slogan { font-size: 1.3rem; }
         }
 
         .footer { padding: 80px 20px; text-align: center; border-top: 1px solid var(--border); font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: #444; letter-spacing: 1px; }
@@ -119,37 +170,40 @@
         </p>
     </section>
 
+  <section class="leadership-row">
+        <div class="leader-image">
+            <img src="images/fulls/phong_and_brother.webp" alt="Phong Dao & TD Unit">
+        </div>
+        
+        <div class="leader-content">
+            <div class="leader-role">UNIT LEADERSHIP // HCMC_LAB</div>
+            
+            <p class="leader-slogan">
+                “We are a small, specialized team focused on high-precision output. Our mission is to help deep-tech companies translate complex engineering into massive brand awareness.”
+            </p>
+            
+            <p class="leader-name">Phong DAO / Art Director<br><span>& The HCMC TD Unit</span></p>
+        </div>
+    </section>
     <section class="split-container">
-        <div class="split-row">
-            <div class="split-image">
+        <div class="split-row row-reverse"> <div class="split-image">
                 <img src="images/servicepage/Mouse_jpg.png" alt="Engineering Audit">
             </div>
             <div class="split-content">
-                <div class="split-num">IDENT_01 // THE UNIT</div>
+                <div class="split-num">PROTOCOL_01 // THE UNIT</div>
                 <h2 class="split-title">Zero-Bloat<br>Execution</h2>
-                <p class="split-desc">We operate as a lean, high-velocity studio. There are no account managers—you speak directly to the architects building your digital twins. We combine technical precision with a "Surgical" workflow.</p>
+                <p class="split-desc">We operate with military-grade efficiency. By remaining lean, we eliminate corporate bureaucracy and put 100% of the focus on the technical integrity of the visualization. You speak directly to the unit building the assets.</p>
             </div>
         </div>
 
-        <div class="split-row row-reverse">
+        <div class="split-row">
             <div class="split-image">
                 <img src="images/fulls/Section2_CompImg_webp.webp" alt="Material Honesty">
             </div>
             <div class="split-content">
-                <div class="split-num">IDENT_02 // PHILOSOPHY</div>
+                <div class="split-num">PROTOCOL_02 // PHILOSOPHY</div>
                 <h2 class="split-title">Material<br>Honesty</h2>
-                <p class="split-desc">Industrial hardware is beautiful because of how it works. We prioritize the "Physical Truth"—ensuring every polymer, metal finish, and internal PCB reacts to light exactly as it does in the laboratory.</p>
-            </div>
-        </div>
-        
-        <div class="split-row">
-            <div class="split-image">
-                <img src="images/servicepage/Smartwatch.jpg" alt="Global Reach">
-            </div>
-            <div class="split-content">
-                <div class="split-num">IDENT_03 // REACH</div>
-                <h2 class="split-title">Global<br>Infrastructure</h2>
-                <p class="split-desc">From our lab in HCMC, we fire visual missiles across the US, EU, and Australia. We support industry leaders in aerospace, medical technology, and renewable energy with 8K technical assets.</p>
+                <p class="split-desc">Every render is an audit. We prioritize how polymers, brushed metals, and scientific glass react to light in the real world. We don't mask engineering with 'Hollywood' glow.</p>
             </div>
         </div>
     </section>
