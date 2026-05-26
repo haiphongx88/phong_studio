@@ -46,29 +46,35 @@
         .nav-link { color: white; text-decoration: none; font-size: 0.75rem; font-family: 'JetBrains Mono'; letter-spacing: 1px; transition: 0.3s; }
         .nav-link:hover { color: var(--accent); }
 
-        /* --- IMMERSIVE IMAGE CONTAINER STYLES --- */
+        /* --- FIXED: IMMERSIVE DISPLAY CONTAINER --- */
         .showcase-container {
             width: 100%;
-            margin-top: 65px; /* Pushes content exactly below fixed navbar */
+            margin-top: 100px; /* Gives plenty of breathing room below fixed navbar */
+            padding: 0 20px 60px; /* Padding on sides stops edge stretching */
             display: flex;
             flex-direction: column;
             align-items: center;
-            background: #000;
+            gap: 40px; /* Clean spatial gap between slide 1 and slide 2 */
+            background: var(--bg);
         }
 
         .showcase-img {
             width: 100%;
-            max-width: 1920px; /* Perfect desktop layout limit */
+            max-width: 1100px; /* FIXES PC SCALING: Stops image from expanding too large on desktops */
             height: auto;
             display: block;
+            border: 1px solid var(--border); /* Professional high-tech subtle outline */
+            border-radius: 8px; /* Smooth professional corner rounding */
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5); /* Deep visual separation from background */
         }
 
-        /* --- RESPONSIVE FIXES --- */
+        /* --- RESPONSIVE FIXES FOR PHONE SCREENS --- */
         @media (max-width: 768px) {
             nav { padding: 15px 20px; }
             .nav-right { gap: 15px; }
             .nav-link { font-size: 0.65rem; }
-            .showcase-container { margin-top: 55px; }
+            .showcase-container { margin-top: 80px; gap: 20px; padding: 0 10px 40px; }
+            .showcase-img { border-radius: 4px; }
         }
     </style>
 </head>
