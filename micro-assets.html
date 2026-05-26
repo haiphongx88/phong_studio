@@ -1,1 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NE6007V768"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-NE6007V768');
+    </script>
 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EOS Studio Lab | Technical CGI & Motion</title>
+    
+    <meta name="description" content="High-end CGI, industrial design visualization, and technical simulations for global tech brands. Precision-engineered by EOS LAB.">
+    <meta name="keywords" content="3D Visualization, CGI, Industrial Design, Product Animation, Houdini Simulation, Technical CGI">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg: #050505;
+            --text: #ffffff;
+            --accent: #ff6600; 
+            --subtext: #a0a0a0;
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg); color: var(--text); font-family: 'Space Grotesk', sans-serif; line-height: 1.6; overflow-x: hidden; }
+
+        /* --- NAVIGATION --- */
+        nav { 
+            padding: 20px 40px; 
+            position: fixed; 
+            width: 100%; 
+            top: 0; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            z-index: 1000; 
+            backdrop-filter: blur(15px); 
+            border-bottom: 1px solid var(--border);
+            background: rgba(5, 5, 5, 0.7);
+        }
+        .logo a { color: var(--accent); text-decoration: none; font-family: 'JetBrains Mono'; font-weight: 800; text-transform: uppercase; font-size: 18px; letter-spacing: 2px; }
+        
+        .nav-right { display: flex; align-items: center; gap: 25px; }
+        .nav-link { color: white; text-decoration: none; font-size: 0.75rem; font-family: 'JetBrains Mono'; letter-spacing: 1px; transition: 0.3s; }
+        .nav-link:hover { color: var(--accent); }
+
+        /* --- HERO VIDEO --- */
+        .video-container { 
+            width: 100%; 
+            height: 85vh; 
+            background: #000; 
+            position: relative;
+            margin-top: 60px; 
+            overflow: hidden; 
+            border-bottom: 1px solid var(--border); 
+        }
+        .video-container iframe { 
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 100vw; height: 56.25vw; 
+            min-height: 85vh; min-width: 151vh;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        /* --- NEW FULL SCREEN IMAGE SECTION --- */
+        .fullscreen-showcase {
+            width: 100%;
+            height: 100vh; /* Takes full viewport height */
+            background-image: url('images/mircro_assest_gallery/Cinematic Product Micro-Assets is.webp'); /* Your path */
+            background-size: cover; /* Keeps 1920x1080 scaling perfectly */
+            background-position: center; /* Centers the canvas artwork */
+            background-repeat: no-repeat;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+        }
+
+        /* --- HEADERS --- */
+        .section-header { padding: 100px 20px 40px; text-align: center; }
+        .section-title { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--accent); text-transform: uppercase; letter-spacing: 5px; margin-bottom: 15px; }
+        .section-sub { font-size: 1.1rem; color: var(--subtext); max-width: 750px; margin: 0 auto; font-weight: 300; }
+
+        /* --- GRIDS --- */
+        .pipeline-grid, .motion-grid { display: grid; gap: 20px; padding: 0 40px 100px; max-width: 1400px; margin: 0 auto; }
+        .pipeline-grid { grid-template-columns: repeat(4, 1fr); }
+        .motion-grid { grid-template-columns: repeat(3, 1fr); }
+
+        .gallery-item { position: relative; overflow: hidden; aspect-ratio: 16 / 9; background: #111; border: 1px solid var(--border); transition: 0.4s; }
+        .gallery-item:hover { border-color: var(--accent); transform: translateY(-5px); }
+        .gallery-item img, .gallery-item iframe { width: 100%; height: 100%; object-fit: cover; display: block; border: none; }
+        
+        .gallery-label { 
+            position: absolute; bottom: 12px; left: 12px; 
+            font-family: 'JetBrains Mono'; font-size: 0.6rem; 
+            background: rgba(0,0,0,0.8); padding: 4px 8px; 
+            border-left: 2px solid var(--accent); 
+        }
+
+        /* --- MOSAIC --- */
+        .mosaic-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; padding: 40px; max-width: 1400px; margin: 0 auto; }
+        .mosaic-item { position: relative; aspect-ratio: 1/1; overflow: hidden; border: 1px solid var(--border); }
+        .mosaic-item img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* --- BUTTONS --- */
+        .cta-btn { 
+            display: inline-block; background: var(--accent); color: #000; 
+            padding: 18px 40px; text-decoration: none; 
+            font-family: 'JetBrains Mono'; font-weight: 800; font-size: 0.75rem; 
+            letter-spacing: 2px; text-transform: uppercase; transition: 0.3s;
+        }
+        .cta-btn:hover { background: #fff; transform: scale(1.02); }
+
+        .outline-btn {
+            display: inline-block; border: 1px solid var(--border); color: #fff;
+            padding: 12px 25px; text-decoration: none;
+            font-family: 'JetBrains Mono'; font-size: 0.7rem; letter-spacing: 2px; transition: 0.3s;
+        }
+        .outline-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+        .footer { padding: 80px 20px; text-align: center; border-top: 1px solid var(--border); font-family: 'JetBrains Mono'; font-size: 0.7rem; color: #444; }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 1024px) {
+            .pipeline-grid, .motion-grid, .mosaic-gallery { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            nav { padding: 15px 20px; }
+            .nav-right { gap: 15px; }
+            .nav-link { font-
