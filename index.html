@@ -119,12 +119,24 @@
         @media (max-width: 1024px) {
             .pipeline-grid, .motion-grid, .mosaic-gallery { grid-template-columns: repeat(2, 1fr); }
         }
+    /* --- RESPONSIVE --- */
+        @media (max-width: 1024px) {
+            .pipeline-grid, .motion-grid, .mosaic-gallery { grid-template-columns: repeat(2, 1fr); }
+        }
         @media (max-width: 768px) {
             nav { padding: 15px 20px; }
             .nav-right { gap: 15px; }
             .nav-link { font-size: 0.65rem; }
             .pipeline-grid, .motion-grid, .mosaic-gallery { grid-template-columns: 1fr; padding: 20px; }
+            
+            /* --- VIDEO CONTAINER MOBILE FIX --- */
             .video-container { height: 50vh; }
+            .video-container iframe {
+                width: 100vw;
+                height: 56.25vw;              /* Maintains 16:9 aspect ratio standard */
+                min-height: 50vh;             /* Forces video to match new mobile container height */
+                min-width: 88.88vh;           /* Calculates perfect 16:9 crop width (50vh * 16 / 9) */
+            }
         }
     </style>
 </head>
