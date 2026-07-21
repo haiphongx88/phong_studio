@@ -90,19 +90,41 @@
             font-family: 'JetBrains Mono'; font-size: 0.6rem; 
             background: rgba(0,0,0,0.8); padding: 4px 8px; 
             border-left: 2px solid var(--accent); 
+            z-index: 5;
         }
 
         /* --- MOSAIC --- */
-       /* --- MOSAIC --- */
-.mosaic-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; padding: 40px; max-width: 1400px; margin: 0 auto; }
-.mosaic-item { position: relative; aspect-ratio: 1/1; overflow: hidden; border: 1px solid var(--border); }
+        .mosaic-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; padding: 40px; max-width: 1400px; margin: 0 auto; }
+        .mosaic-item { position: relative; aspect-ratio: 1/1; overflow: hidden; border: 1px solid var(--border); }
+        .mosaic-item img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+        }
 
-/* UPDATE THIS BLOCK RIGHT HERE */
-.mosaic-item img { 
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; /* This stops the image from warping and squishing */
-}
+        /* --- 2-COLUMN VIDEO GRID --- */
+        .video-grid { 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 20px; 
+            padding: 0 40px 100px; 
+            max-width: 1400px; 
+            margin: 0 auto; 
+        }
+        .video-item { 
+            position: relative; 
+            aspect-ratio: 16 / 9; 
+            background: #0a0a0a; 
+            border: 1px solid var(--border); 
+            overflow: hidden; 
+        }
+        .video-item video { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            display: block; 
+            border: none; 
+        }
 
         /* --- BUTTONS --- */
         .cta-btn { 
@@ -124,25 +146,21 @@
 
         /* --- RESPONSIVE --- */
         @media (max-width: 1024px) {
-            .pipeline-grid, .motion-grid, .mosaic-gallery { grid-template-columns: repeat(2, 1fr); }
-        }
-    /* --- RESPONSIVE --- */
-        @media (max-width: 1024px) {
-            .pipeline-grid, .motion-grid, .mosaic-gallery { grid-template-columns: repeat(2, 1fr); }
+            .pipeline-grid, .motion-grid, .mosaic-gallery, .video-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 768px) {
             nav { padding: 15px 20px; }
             .nav-right { gap: 15px; }
             .nav-link { font-size: 0.65rem; }
-            .pipeline-grid, .motion-grid, .mosaic-gallery { grid-template-columns: 1fr; padding: 20px; }
+            .pipeline-grid, .motion-grid, .mosaic-gallery, .video-grid { grid-template-columns: 1fr; padding: 20px; }
             
             /* --- VIDEO CONTAINER MOBILE FIX --- */
             .video-container { height: 50vh; }
             .video-container iframe {
                 width: 100vw;
-                height: 56.25vw;              /* Maintains 16:9 aspect ratio standard */
-                min-height: 50vh;             /* Forces video to match new mobile container height */
-                min-width: 88.88vh;           /* Calculates perfect 16:9 crop width (50vh * 16 / 9) */
+                height: 56.25vw;              
+                min-height: 50vh;             
+                min-width: 88.88vh;           
             }
         }
     </style>
@@ -171,7 +189,7 @@
             VISUAL PROTOCOLS FOR CONSUMER TECH &amp; HOME APPLIANCES
         </div>
         <p class="section-sub" style="font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; max-width: 800px; color: var(--subtext); line-height: 1.8;">
-            > EOS LAB OPERATES AS AN AUTONOMOUS TECHNICAL CELL. WE TRANSLATE RAW CAD ENGINEERING DATA INTO HIGH-FIDELITY 3D ASSETS FOR PREMIUM DEVICES, COMPLEX HARDWARE, AND DOMESTIC MACHINERY.
+            &gt; EOS LAB OPERATES AS AN AUTONOMOUS TECHNICAL CELL. WE TRANSLATE RAW CAD ENGINEERING DATA INTO HIGH-FIDELITY 3D ASSETS FOR PREMIUM DEVICES, COMPLEX HARDWARE, AND DOMESTIC MACHINERY.
         </p>
     </header>
 
@@ -188,65 +206,30 @@
             <img src="images/servicepage/Headphone_jpg.jpg">
             <div class="gallery-label">03 // DESIGN_CORE</div>
         </div>
-       <!-- New Image 4 -->
         <div class="mosaic-item">
             <img src="images/fulls/Amc_Crop_webp.webp">
             <div class="gallery-label">04 // AUDIO_GEAR</div>
         </div>
-        <!-- New Image 5 -->
         <div class="mosaic-item">
             <img src="images/fulls/Coffee_machine_webp.webp">
             <div class="gallery-label">05 // LIFESTYLE_RENDER</div>
         </div>
-        <!-- New Image 6 (FIXED PATH) -->
         <div class="mosaic-item">
             <img src="images/fulls/Airpuri_hero_frontshot.webp">
             <div class="gallery-label">06 // APPLIANCE_CORE</div>
         </div>
-        <!-- New Image 7 -->
         <div class="mosaic-item">
             <img src="images/fulls/Homecam_macro_hori.webp">
             <div class="gallery-label">07 // MACRO_SHOT</div>
         </div>
-        <!-- New Image 8 -->
         <div class="mosaic-item">
             <img src="images/servicepage/YourImage8.jpg">
             <div class="gallery-label">08 // FLUID_DYNAMICS</div>
         </div>
     </div>
-    /* --- ADD THIS RIGHT HERE --- */
-        .video-grid { 
-            display: grid; 
-            grid-template-columns: repeat(2, 1fr); 
-            gap: 20px; 
-            padding: 0 40px 100px; 
-            max-width: 1400px; 
-            margin: 0 auto; 
-        }
-        .video-item { 
-            position: relative; 
-            aspect-ratio: 16 / 9; 
-            background: #0a0a0a; 
-            border: 1px solid var(--border); 
-            overflow: hidden; 
-        }
-        .video-item video { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-            display: block; 
-            border: none; 
-        }
-
-        @media (max-width: 1024px) {
-            .video-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-        @media (max-width: 768px) {
-            .video-grid { grid-template-columns: 1fr; padding: 20px; }
-        }
-    </style> <!-- Look for this tag and paste right above it -->
-    <!-- ADD THIS WHOLE BLOCK RIGHT HERE -->
-    <header class="section-header">
+    
+    <!-- EXPLODED SCHEMATICS 2-COLUMN SECTION -->
+    <header class="section-header" style="border-top: 1px solid var(--border); background: #050505;">
         <div class="section-title" style="letter-spacing: 3px;">// DECONSTRUCTING COMPLEX HARDWARE</div>
         <h2 style="font-size: 2.2rem; font-family: 'Space Grotesk', sans-serif; font-weight: 700; text-align: center; margin-bottom: 15px; text-transform: uppercase;">
             EXPLODED SCHEMATICS
@@ -266,14 +249,7 @@
             <div class="gallery-label">02 // GHOST_RAY_TOPOLOGY</div>
         </div>
     </div>
-    <!-- END OF NEW BLOCK -->
 
-    <!-- Look for this existing code in your file and leave it underneath -->
-    <header class="section-header">
-        <div class="section-title">THE PRODUCTION PIPELINE</div>
-        <p class="section-sub">From raw engineering data to cinematic finality...</p>
-    </header>
-    
     <section class="conversion-gate" style="padding: 60px 40px; background: #0a0a0a; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); text-align: center;">
         <div style="max-width: 800px; margin: 0 auto;">
             <p style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--accent); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 15px;">
@@ -287,7 +263,7 @@
             </p>
             
             <div style="display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap;">
-                <a href="#tally-open=Bz692A&tally-emoji-text=👋&tally-emoji-animation=wave" class="cta-btn" style="padding: 18px 40px; font-size: 0.75rem; text-decoration: none;">
+                <a href="#tally-open=Bz692A&tally-emoji-text=%F0%9F%91%8B&tally-emoji-animation=wave" class="cta-btn" style="padding: 18px 40px; font-size: 0.75rem; text-decoration: none;">
                     [ ESTIMATE PRODUCTION COST ]
                 </a>
                 
@@ -305,23 +281,23 @@
     </header>
 
     <div class="pipeline-grid">
-    <div class="gallery-item">
-        <img src="images/fulls/HomeCam_wireframe.webp">
-        <div class="gallery-label">PHASE_01 // WIREFRAME</div>
+        <div class="gallery-item">
+            <img src="images/fulls/HomeCam_wireframe.webp">
+            <div class="gallery-label">PHASE_01 // WIREFRAME</div>
+        </div>
+        <div class="gallery-item">
+            <img src="images/fulls/Homecam_45degree_hori.webp">
+            <div class="gallery-label">PHASE_02 // ANGLE SHOT</div>
+        </div>
+        <div class="gallery-item">
+            <img src="images/fulls/Homecam_macro_hori.webp">
+            <div class="gallery-label">PHASE_03 // MACRO</div>
+        </div>
+        <div class="gallery-item">
+            <img src="images/fulls/Hero_v4_comp.webp">
+            <div class="gallery-label">PHASE_04 // COMP_SHOT</div>
+        </div>
     </div>
-    <div class="gallery-item">
-        <img src="images/fulls/Homecam_45degree_hori.webp">
-        <div class="gallery-label">PHASE_02 // ANGLE SHOT</div>
-    </div>
-    <div class="gallery-item">
-        <img src="images/fulls/Homecam_macro_hori.webp">
-        <div class="gallery-label">PHASE_03 // MACRO</div>
-    </div>
-    <div class="gallery-item">
-        <img src="images/fulls/Hero_v4_comp.webp">
-        <div class="gallery-label">PHASE_04 // COMP_SHOT</div>
-    </div>
-</div>
     
     <section class="section-header" style="background: #050505; padding: 60px 20px 80px; border-top: 1px solid var(--border);">
         <div class="section-title" style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--accent); letter-spacing: 3px; margin-bottom: 15px;">
@@ -338,11 +314,11 @@
             
             <a href="https://www.behance.net/EOSStudioLab" target="_blank" class="outline-btn" style="padding: 16px 30px; min-width: 240px; text-align: center; font-weight: 500; border-color: #0057ff; color: #0057ff; font-family: 'JetBrains Mono'; transition: all 0.3s ease;">
                 BEHANCE_PORTFOLIO
-</a>
+            </a>
         </div>
     </section>
     
-   <footer style="padding: 60px 40px; border-top: 1px solid var(--border); background: #050505; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: #888888;">
+    <footer style="padding: 60px 40px; border-top: 1px solid var(--border); background: #050505; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: #888888;">
         <div style="max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
             <div>
                 <span style="color: #888888;">© 2026 EOS STUDIO LAB // </span>
@@ -354,9 +330,6 @@
             </div>
         </div>
     </footer>
-
-</body>
-</html>
 
 </body>
 </html>
