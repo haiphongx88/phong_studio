@@ -1,1 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collection // EOS Studio Lab</title>
+  <style>
+    /* Section Setup */
+    .portfolio-section {
+      padding: 60px 4%;
+      background-color: #0b0b0b;
+      color: #ffffff;
+      font-family: sans-serif;
+    }
+    .section-title {
+      font-size: 14px;
+      letter-spacing: 4px;
+      margin-bottom: 40px;
+      color: #666;
+    }
 
+    /* 3x3 Responsive Grid */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    @media (max-width: 900px) {
+      .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .portfolio-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Individual Grid Items */
+    .grid-item {
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .media-container {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background-color: #1a1a1a;
+      overflow: hidden;
+    }
+    .media-container video, .media-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .grid-item:hover .media-container video {
+      transform: scale(1.03);
+    }
+    .item-info {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 12px;
+      font-size: 13px;
+      letter-spacing: 1px;
+    }
+    .item-number { color: #555; }
+
+    /* Pop-up Modal Overlay */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .modal-overlay.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    /* Modal Window Content Box */
+    .modal-content {
+      background-color: #121212;
+      border: 1px solid #222;
+      width: 90%;
+      max-width: 950px;
+      max-height: 85vh;
+      overflow-y: auto;
+      position: relative;
+      padding: 40px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    }
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 32px;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .close-btn:hover { color: #888; }
+
+    /* Modal Inner Layout */
+    .modal-project-layout {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 40px;
+      margin-top: 20px;
+    }
+    @media (max-width: 768px) {
+      .modal-project-layout { grid-template-columns: 1fr; }
+    }
+    .modal-desc-title { font-size: 24px; margin-bottom: 15px; letter-spacing: 1px; }
+    .modal-desc-brief { color: #aaa; line-height: 1.6; margin-bottom: 25px; font-size: 14px; }
+    .modal-tech-list { list-style: none; padding: 0; font-size: 13px; }
+    .modal-tech-list li { margin-bottom: 8px; color: #ccc; }
+    .modal-tech-list strong { color: #888; }
+  </style>
+</head>
+<body>
+
+  <!-- Portfolio Grid Container -->
+  <div class="portfolio-section">
+    <h2 class="section-title">SELECTED WORKS</h2>
+    
+    <div class="portfolio-grid">
+      
+      <!-- Item 1: Ghost View -->
+      <div class="grid-item" onclick="openModal('project-ghost-view')">
+        <div class="media-container">
+          <video src="videos/ghost_view_thumb.webm" muted loop playsinline onmouseover="this.play()" onmouseout="this.pause(); this.currentTime=0;"></video>
+        </div>
+        <div class="item-info">
+          <span class="item-name">GHOST_VIEW</span>
+          <span class="item-number">08</span>
+        </div>
+      </div>
+
+      <!-- Item 2: Fluid Dynamics -->
+      <div class="grid-item" onclick="openModal('project-fluid-dynamics')">
+        <div class="media-container">
+          <video src="videos/fluid_dynamics_thumb.webm" muted loop playsinline onmouseover="this.play()" onmouseout="this.pause(); this.currentTime=0;"></video>
+        </div>
+        <div class="item-info">
+          <span class="item-name">FLUID_DYNAMICS</span>
+          <span class="item-number">09</span>
+        </div>
+      </div>
+      
+      <!-- [TEMPLATES FOR YOUR OTHER 7 ITEMS TO REACH 9 TOTAL] -->
+      <!-- Simply change the unique 'project-id' tag in openModal() and your thumbnail paths below -->
+      
+      <div class="grid-item" onclick="openModal('project-3')">
+        <div class="media-container"><div style="color:#444; text-align:center; padding-top:20%;">Item 3 Thumbnail</div></div>
+        <div class="item-info"><span>PROJECT_THREE</span><span>03</span></div>
+      </div>
+      <div class="grid-item" onclick="openModal('project-4')">
+        <div class="media-container"><div style="color:#444; text-align:center; padding-top:20%;">Item 4 Thumbnail</div></div>
+        <div class="item-info"><span>PROJECT_FOUR</span><span>04</span></div>
+      </div>
+      <div class="grid-item" onclick="openModal('project-5')">
+        <div class="media-container"><div style="color:#444; text-align:center; padding-top:20%;">Item 5 Thumbnail</div></div>
+        <div class="item-info"><span>PROJECT_FIVE</span><span>05</span></div>
+      </div>
+      <div class="grid-item" onclick="openModal('project-6')">
+        <div class="media-container"><div style="color:#444; text-align:center; padding-top:20%;">Item 6 Thumbnail</div></div>
+        <div class="item-info"><span>PROJECT_SIX</span><span>06</span></div>
+      </div>
+      <div class="grid-item" onclick="openModal('project-7')">
+        <div class="media-container"><div style="color:#444; text-align:center; padding-top:20%;">Item 7 Thumbnail</div></div>
+        <div class="item-info"><span>PROJECT_SEVEN</span><span>07</span></div>
+      </div>
+      <div class="grid-item" onclick="openModal('project-8')">
+        <div class="media-container"><div style="color:#444; text-align:center; padding-top:20%;">Item 8 Thumbnail</div></div>
+        <div class="item-info"><span>PROJECT_EIGHT</span><span>08</span></div>
+      </div>
+      <div class="grid-item" onclick="openModal('project-9')">
+        <div class="media-container"><div style="color:#444; text-align:center; padding-top:20%;">Item 9 Thumbnail</div></div>
+        <div class="item-info"><span>PROJECT_NINE</span><span>09</span></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Dynamic Popup Modal Structure -->
+  <div id="projectModal" class="modal-overlay" onclick="closeModal(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <button class="close-btn" onclick="closeModal(event)">&times;</button>
+      <div id="modalBody">
+        <!-- JavaScript will dynamically inject data here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Script Controller -->
+  <script>
+    // Project database matching the IDs assigned in the HTML grid items
+    const projectData = {
+      'project-ghost-view': {
+        title: '08 // GHOST_VIEW',
+        brief: 'A premium technical presentation showcasing the inner architecture, engineering alignments, and internal sensor arrays of a high-end smartwatch utilizing automated AOV layer compositing.',
+        mediaHtml: '<video src="videos/ghost_view_full.mp4" controls autoplay loop style="width:100%; border: 1px solid #222;"></video>',
+        tech: [
+          '<strong>Role:</strong> 3D Lookdev / Technical Animation / Compositing',
+          '<strong>Stack:</strong> Houdini / After Effects (EXtractor AOV Workflow)',
+          '<strong>Method:</strong> Solid Chassis Matte Pass + Internal Micro-Component Transparency Interpolation'
+        ]
+      },
+      'project-fluid-dynamics': {
+        title: '09 // FLUID_DYNAMICS',
+        brief: 'High-velocity fluid simulation studies focusing on cosmetic product viscosity, custom surface tensions, and cinematic macro branding visuals.',
+        mediaHtml: '<video src="videos/fluid_dynamics_full.mp4" controls autoplay loop style="width:100%; border: 1px solid #222;"></video>',
+        tech: [
+          '<strong>Role:</strong> Simulation FX / Lighting Design',
+          '<strong>Stack:</strong> Houdini (FLIP Fluid Solver) / Redshift',
+          '<strong>Method:</strong> High-density mesh generation with custom micro-bubble particle layers'
+        ]
+      },
+      'project-3': {
+        title: '03 // PROJECT_THREE',
+        brief: 'Project Description Details go here.',
+        mediaHtml: '<div style="background:#222; aspect-ratio:16/9; display:flex; align-items:center; justify-content:center;">Showcase Video/Image Asset</div>',
+        tech: ['<strong>Role:</strong> 3D Artist', '<strong>Stack:</strong> Houdini', '<strong>Method:</strong> Procedural Modeling']
+      }
+      // You can add project-4 through project-9 here following the exact template above!
+    };
+
+    function openModal(projectId) {
+      const modal = document.getElementById('projectModal');
+      const body = document.getElementById('modalBody');
+      const data = projectData[projectId];
+
+      if (!data) return;
+
+      body.innerHTML = `
+        <div class="modal-project-layout">
+          <div class="modal-media-side">
+            ${data.mediaHtml}
+          </div>
+          <div class="modal-text-side">
+            <h3 class="modal-desc-title">${data.title}</h3>
+            <p class="modal-desc-brief">${data.brief}</p>
+            <ul class="modal-tech-list">
+              ${data.tech.map(item => `<li>${item}</li>`).join('')}
+            </ul>
+          </div>
+        </div>
+      `;
+
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden'; 
+    }
+
+    function closeModal(event) {
+      const modal = document.getElementById('projectModal');
+      modal.classList.remove('active');
+      document.body.style.overflow = ''; 
+      document.getElementById('modalBody').innerHTML = '';
+    }
+  </script>
+</body>
+</html>
