@@ -120,7 +120,6 @@
       .modal-project-layout { grid-template-columns: 1fr; }
     }
     
-    /* ORANGE FONT APPLIED HERE */
     .modal-desc-title { 
       font-size: 24px; 
       margin-bottom: 15px; 
@@ -216,7 +215,7 @@
         </div>
       </div>
 
-       <!-- Item 6: EC_685 --> 
+      <!-- Item 6: EC_685 --> 
        <div class="grid-item" onclick="openModal('project-6')">
         <div class="media-container">
           <img src="images/collection_page/EC685_comp_heroshot_webp.webp" alt="Coffee_machine_showcase">
@@ -227,11 +226,7 @@
         </div>
       </div>
 
-      <!-- Remaining placeholder items (6 to 9) -->
-      <div class="grid-item" onclick="openModal('project-6')">
-        <div class="media-container"><div style="color:#444; text-align:center; padding-top:20%;">Item 6 Thumbnail</div></div>
-        <div class="item-info"><span>PROJECT_SIX</span><span>06</span></div>
-      </div>
+      <!-- Remaining placeholder items (7 to 9) -->
       <div class="grid-item" onclick="openModal('project-7')">
         <div class="media-container"><div style="color:#444; text-align:center; padding-top:20%;">Item 7 Thumbnail</div></div>
         <div class="item-info"><span>PROJECT_SEVEN</span><span>07</span></div>
@@ -281,7 +276,7 @@
           '<strong>Method:</strong> Dynamic exploded core expansion mechanics'
         ]
       },
-     'project-ghost-view': {
+      'project-ghost-view': {
         title: '02 // GHOST_VIEW_ANIMATION',
         brief: 'A premium technical presentation showcasing the precise internal components of high-end hardware, highlighting its advanced engineering through cinematic, semi-transparent layered visuals.',
         mediaHtml: '<video src="videos/Anim_GhostView_webm.webm" controls autoplay loop style="width:100%; border: 1px solid #222;"></video>',
@@ -351,14 +346,13 @@
           '<strong>Stack:</strong> C4D / Houdini', 
           '<strong>Method:</strong> Topology Fix, Lookdev'
         ]
-      }
-    };
-    'project-6': {
-        title: '06 // COFFEE_MACHINE',
-        brief: 'A focused lookdev and marketing imagery series for the iconic consumer espresso hardware, featuring 3 high-fidelity hero angles and 1 macroshot to subtle highlight the Brandname Logo',
+      },
+      'project-6': {
+        title: '06 // Dedica EC685 Lookdev',
+        brief: 'A focused lookdev and marketing imagery series for the iconic consumer espresso hardware, featuring 3 high-fidelity hero angles and 1 lifestyle composite rendering designed to validate premium brushed metallic finishes, intake vent geometry, material continuity, and seamless environmental integration.',
         mediaHtml: `
           <div class="gallery-container">
-            <img id="mainGalleryImage" src="images/fulls/Airpuri_hero_frontshot.webp" alt="Home Air Purifier View" style="width:100%; aspect-ratio:16/9; object-fit:cover; border: 1px solid #222; display:block; margin-bottom:12px;">
+            <img id="mainGalleryImage" src="images/collection_page/EC685_comp_heroshot_webp.webp" alt="Coffee Machine View" style="width:100%; aspect-ratio:16/9; object-fit:cover; border: 1px solid #222; display:block; margin-bottom:12px;">
             <div style="display: flex; gap: 2.5%; width: 100%;">
               <img src="images/collection_page/EC685_comp_heroshot_webp.webp" class="modal-thumb active-thumb" onclick="switchGalleryImage(this)">
               <img src="images/collection_page/EC685_comp_frontshot__webp.webp" class="modal-thumb" onclick="switchGalleryImage(this)">
@@ -369,7 +363,7 @@
         `,
         tech: [
           '<strong>Role:</strong> 3D Lookdev Rendering', 
-          '<strong>Stack:</strong> C4D / Houdini /Substance Painter', 
+          '<strong>Stack:</strong> C4D / Houdini / Substance Painter', 
           '<strong>Method:</strong> Topology Fix, Lookdev'
         ]
       }
