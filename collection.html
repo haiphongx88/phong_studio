@@ -205,6 +205,17 @@
         </div>
       </div>
 
+      <!-- Item 5: Home Air Purifier --> 
+       <div class="grid-item" onclick="openModal('project-5')">
+        <div class="media-container">
+          <img src="images/fulls/Hero_v4_comp.webp" alt="Home_AirPurifier_showcase">
+        </div>
+        <div class="item-info">
+          <span>HOME_AIR PURIFIER_PROJECT</span>
+          <span>05</span>
+        </div>
+      </div>
+
       <!-- Templates for remaining grid items -->
       <div class="grid-item" onclick="openModal('project-5')">
         <div class="media-container"><div style="color:#444; text-align:center; padding-top:20%;">Item 5 Thumbnail</div></div>
@@ -305,6 +316,26 @@
               <img src="images/fulls/Homecam_45degree_hori.webp" class="modal-thumb" onclick="switchGalleryImage(this)">
               <img src="images/fulls/Homecam_macro_hori.webp" class="modal-thumb" onclick="switchGalleryImage(this)">
               <img src="images/fulls/Hero_v4_comp.webp" class="modal-thumb" onclick="switchGalleryImage(this)">
+            </div>
+          </div>
+        `,
+        tech: [
+          '<strong>Role:</strong> 3D Artist Rendering', 
+          '<strong>Stack:</strong> C4D / Houdini', 
+          '<strong>Method:</strong> Topology Fix, Lookdev'
+        ]
+      }
+    };
+    'project-5': {
+        title: '05 // HOME AIR PURIFIER',
+        brief: 'A focused lookdev and marketing imagery series for consumer IoT hardware, featuring 3 high-fidelity hero angles and 1 lifestyle composite rendering designed to validate premium surface finishes, intake vent geometry, material continuity, and seamless environmental integration.',
+        mediaHtml: `
+          <div class="gallery-container">
+            <img id="mainGalleryImage" src="images/fulls/Airpuri_hero_frontshot.webp" alt="Home Air Purifier View" style="width:100%; aspect-ratio:16/9; object-fit:cover; border: 1px solid #222; display:block; margin-bottom:12px;">
+            <div style="display: flex; gap: 2.5%; width: 100%;">
+              <img src="images/fulls/Airpuri_hero_frontshot.webp" class="modal-thumb active-thumb" onclick="switchGalleryImage(this)">
+              <img src="images/fulls/Airpuri_hero_rearshot.webp" class="modal-thumb" onclick="switchGalleryImage(this)">
+              <img src="images/fulls/Airpuri_hero_envshot.webp" class="modal-thumb" onclick="switchGalleryImage(this)">
             </div>
           </div>
         `,
