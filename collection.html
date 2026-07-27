@@ -238,16 +238,23 @@
         ]
       },
       'project-3': {
-        title: '03 // RAW_RENDER',
-        brief: 'A zero-compositing, high-fidelity viewport sequence designed to validate lighting accuracy, physical material properties, and raw CAD geometry precision before post-production.',
-        mediaHtml: '<img src="images/fulls/AMC_webp.webp" alt="Raw Render Asset" style="width:100%; border: 1px solid #222; display:block;">',
-        tech: [
-          '<strong>Role:</strong> 3D Artist Rendering', 
-          '<strong>Stack:</strong> C4D / Houdini', 
-          '<strong>Method:</strong> Topology Fix, Lookdev'
-        ]
-      }
-    };
+  title: '03 // RAW_RENDER_AMC_DISPLAY',
+  brief: 'A zero-compositing, high-fidelity viewport series designed to validate lighting accuracy, physical material properties, and raw CAD geometry precision across 5 crucial hardware angles.',
+  mediaHtml: `
+    <div style="display: flex; flex-direction: column; gap: 15px;">
+      <img src="images/fulls/AMC_webp.webp" alt="AMC Angle 1" style="width:100%; border: 1px solid #222;">
+      <img src="images/fulls/AMC_angle2.webp" alt="AMC Angle 2" style="width:100%; border: 1px solid #222;">
+      <img src="images/fulls/AMC_macro.webp" alt="AMC Macro Target" style="width:100%; border: 1px solid #222;">
+      <img src="images/fulls/AMC_back.webp" alt="AMC IO Ports" style="width:100%; border: 1px solid #222;">
+      <img src="images/fulls/AMC_wireframe.webp" alt="AMC Wireframe Topology" style="width:100%; border: 1px solid #222;">
+    </div>
+  `,
+  tech: [
+    '<strong>Role:</strong> 3D Technical Artist / Lookdev',
+    '<strong>Stack:</strong> Cinema 4D / Houdini / Redshift',
+    '<strong>Method:</strong> Multi-angle physical shader validation and topology analysis'
+  ]
+}
 
     function openModal(projectId) {
       const modal = document.getElementById('projectModal');
