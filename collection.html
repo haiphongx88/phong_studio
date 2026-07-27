@@ -192,20 +192,21 @@
           <span>RAW_RENDER</span>
           <span>03</span>
         </div>
-       <!-- Item 4: Home Camera --> 
       </div>
+
+       <!-- Item 4: Home Camera --> 
        <div class="grid-item" onclick="openModal('project-4')">
         <div class="media-container">
           <img src="images/fulls/Hero_v4_comp.webp" alt="Home_camera_showcase">
         </div>
         <div class="item-info">
           <span>HOME_CAMERA_PROJECT</span>
-          <span>03</span>
+          <span>04</span>
         </div>
       </div>
 
       <!-- Templates for remaining grid items -->
-          <div class="grid-item" onclick="openModal('project-5')">
+      <div class="grid-item" onclick="openModal('project-5')">
         <div class="media-container"><div style="color:#444; text-align:center; padding-top:20%;">Item 5 Thumbnail</div></div>
         <div class="item-info"><span>PROJECT_FIVE</span><span>05</span></div>
       </div>
@@ -292,14 +293,13 @@
           '<strong>Stack:</strong> C4D / Houdini', 
           '<strong>Method:</strong> Topology Fix, Lookdev'
         ]
-      }
-    };
+      },
       'project-4': {
         title: '04 // HOME CAMERA',
         brief: 'A focused lookdev and marketing imagery series for consumer IoT hardware, featuring 3 high-fidelity hero angles and 1 multi-view composite layout designed to validate premium surface finishes, optical lens clarity, material continuity, and industrial design aesthetics.',
         mediaHtml: `
           <div class="gallery-container">
-            <img id="mainGalleryImage" src="images/fulls/AMC_webp.webp" alt="Raw Render Asset" style="width:100%; aspect-ratio:16/9; object-fit:cover; border: 1px solid #222; display:block; margin-bottom:12px;">
+            <img id="mainGalleryImage" src="images/fulls/homecam_hero_webp.webp" alt="Home Camera View" style="width:100%; aspect-ratio:16/9; object-fit:cover; border: 1px solid #222; display:block; margin-bottom:12px;">
             <div style="display: flex; gap: 2.5%; width: 100%;">
               <img src="images/fulls/homecam_hero_webp.webp" class="modal-thumb active-thumb" onclick="switchGalleryImage(this)">
               <img src="images/fulls/Homecam_45degree_hori.webp" class="modal-thumb" onclick="switchGalleryImage(this)">
@@ -314,7 +314,7 @@
           '<strong>Method:</strong> Topology Fix, Lookdev'
         ]
       }
-    }
+    };
 
     function openModal(projectId) {
       const modal = document.getElementById('projectModal');
