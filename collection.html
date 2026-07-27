@@ -51,7 +51,7 @@
       object-fit: cover;
       transition: transform 0.5s ease;
     }
-    .grid-item:hover .media-container video {
+    .grid-item:hover .media-container video, .grid-item:hover .media-container img {
       transform: scale(1.03);
     }
     .item-info {
@@ -164,11 +164,18 @@
         </div>
       </div>
       
-      <!-- Templates for remaining grid items -->
+      <!-- Item 3: Raw Physics Render -->
       <div class="grid-item" onclick="openModal('project-3')">
-        <div class="media-container"><div style="color:#444; text-align:center; padding-top:20%;">Item 3 Thumbnail</div></div>
-        <div class="item-info"><span>RAW_RENDER</span><span>03</span></div>
+        <div class="media-container">
+          <img src="images/fulls/AMC_webp.webp" alt="Raw Render Asset">
+        </div>
+        <div class="item-info">
+          <span>RAW_RENDER</span>
+          <span>03</span>
+        </div>
       </div>
+
+      <!-- Templates for remaining grid items -->
       <div class="grid-item" onclick="openModal('project-4')">
         <div class="media-container"><div style="color:#444; text-align:center; padding-top:20%;">Item 4 Thumbnail</div></div>
         <div class="item-info"><span>PROJECT_FOUR</span><span>04</span></div>
@@ -212,7 +219,7 @@
     const projectData = {
       'project-exploded-view': {
         title: '01 // EXPLODED_VIEW',
-        brief: 'Visual hardward Description: We cross-section complex CAD geometry into immersive, high-fidelity mechanical breakdowns—proving structural integrity, internal optimizations, and advanced engineering values instantly to premium B2B prospects',
+        brief: 'Visual hardware Description: We cross-section complex CAD geometry into immersive, high-fidelity mechanical breakdowns—proving structural integrity, internal optimizations, and advanced engineering values instantly to premium B2B prospects.',
         mediaHtml: '<video src="videos/Smartwatch_ExplodeView_comp_webm.webm" controls autoplay loop style="width:100%; border: 1px solid #222;"></video>',
         tech: [
           '<strong>Role:</strong> 3D Technical Animation / CAD Assembly',
@@ -233,8 +240,12 @@
       'project-3': {
         title: '03 // RAW_RENDER',
         brief: 'A zero-compositing, high-fidelity viewport sequence designed to validate lighting accuracy, physical material properties, and raw CAD geometry precision before post-production.',
-        mediaHtml: '<div style="background:#222; aspect-ratio:16/9; display:flex; align-items:center; justify-content:center;">Showcase Video/Image Asset</div>',
-        tech: ['<strong>Role:</strong> 3D Artist Rendering', '<strong>Stack:</strong> C4d/ Houdini', '<strong>Method:</strong> Topology Fix, Lookdev']
+        mediaHtml: '<img src="images/fulls/AMC_webp.webp" alt="Raw Render Asset" style="width:100%; border: 1px solid #222; display:block;">',
+        tech: [
+          '<strong>Role:</strong> 3D Artist Rendering', 
+          '<strong>Stack:</strong> C4D / Houdini', 
+          '<strong>Method:</strong> Topology Fix, Lookdev'
+        ]
       }
     };
 
