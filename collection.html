@@ -288,6 +288,28 @@
         ]
       }
     };
+      'project-4': {
+        title: '04 // HOME CAMERA',
+        brief: 'A focused lookdev and marketing imagery series for consumer IoT hardware, featuring 3 high-fidelity hero angles and 1 multi-view composite layout designed to validate premium surface finishes, optical lens clarity, material continuity, and industrial design aesthetics.',
+        mediaHtml: `
+          <div class="gallery-container">
+            <img id="mainGalleryImage" src="images/fulls/AMC_webp.webp" alt="Raw Render Asset" style="width:100%; aspect-ratio:16/9; object-fit:cover; border: 1px solid #222; display:block; margin-bottom:12px;">
+            <div style="display: flex; gap: 2.5%; width: 100%;">
+              <img src="images/fulls/AMC_webp.webp" class="modal-thumb active-thumb" onclick="switchGalleryImage(this)">
+              <img src="images/fulls/AMC_angle2.webp" class="modal-thumb" onclick="switchGalleryImage(this)">
+              <img src="images/fulls/AMC_macro.webp" class="modal-thumb" onclick="switchGalleryImage(this)">
+              <img src="images/fulls/AMC_back.webp" class="modal-thumb" onclick="switchGalleryImage(this)">
+              <img src="images/fulls/AMC_wireframe.webp" class="modal-thumb" onclick="switchGalleryImage(this)">
+            </div>
+          </div>
+        `,
+        tech: [
+          '<strong>Role:</strong> 3D Artist Rendering', 
+          '<strong>Stack:</strong> C4D / Houdini', 
+          '<strong>Method:</strong> Topology Fix, Lookdev'
+        ]
+      }
+    }
 
     function openModal(projectId) {
       const modal = document.getElementById('projectModal');
