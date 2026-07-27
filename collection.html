@@ -132,6 +132,25 @@
     .modal-tech-list { list-style: none; padding: 0; font-size: 13px; }
     .modal-tech-list li { margin-bottom: 8px; color: #ccc; }
     .modal-tech-list strong { color: #888; }
+
+    /* Gallery Thumbnails Style */
+    .modal-thumb {
+      width: 18%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border: 1px solid #333;
+      cursor: pointer;
+      opacity: 0.6;
+      transition: all 0.2s ease;
+    }
+    .modal-thumb:hover {
+      opacity: 1;
+      border-color: #666;
+    }
+    .modal-thumb.active-thumb {
+      opacity: 1;
+      border-color: #ff6600;
+    }
   </style>
 </head>
 <body>
@@ -216,6 +235,16 @@
 
   <!-- Script Controller -->
   <script>
+    // Helper function to switch images and handle active borders dynamically
+    window.switchGalleryImage = function(thumbElement) {
+      document.getElementById('mainGalleryImage').src = thumbElement.src;
+      const siblings = thumbElement.parentNode.getElementsByClassName('modal-thumb');
+      for (let el of siblings) {
+        el.classList.remove('active-thumb');
+      }
+      thumbElement.classList.add('active-thumb');
+    };
+
     const projectData = {
       'project-exploded-view': {
         title: '01 // EXPLODED_VIEW',
@@ -238,23 +267,27 @@
         ]
       },
       'project-3': {
-  title: '03 // RAW_RENDER_AMC_DISPLAY',
-  brief: 'A zero-compositing, high-fidelity viewport series designed to validate lighting accuracy, physical material properties, and raw CAD geometry precision across 5 crucial hardware angles.',
-  mediaHtml: `
-    <div style="display: flex; flex-direction: column; gap: 15px;">
-      <img src="images/fulls/AMC_webp.webp" alt="AMC Angle 1" style="width:100%; border: 1px solid #222;">
-      <img src="images/fulls/AMC_angle2.webp" alt="AMC Angle 2" style="width:100%; border: 1px solid #222;">
-      <img src="images/fulls/AMC_macro.webp" alt="AMC Macro Target" style="width:100%; border: 1px solid #222;">
-      <img src="images/fulls/AMC_back.webp" alt="AMC IO Ports" style="width:100%; border: 1px solid #222;">
-      <img src="images/fulls/AMC_wireframe.webp" alt="AMC Wireframe Topology" style="width:100%; border: 1px solid #222;">
-    </div>
-  `,
-  tech: [
-    '<strong>Role:</strong> 3D Technical Artist / Lookdev',
-    '<strong>Stack:</strong> Cinema 4D / Houdini / Redshift',
-    '<strong>Method:</strong> Multi-angle physical shader validation and topology analysis'
-  ]
-}
+        title: '03 // RAW_RENDER',
+        brief: 'A zero-compositing, high-fidelity viewport sequence designed to validate lighting accuracy, physical material properties, and raw CAD geometry precision before post-production.',
+        mediaHtml: `
+          <div class="gallery-container">
+            <img id="mainGalleryImage" src="images/fulls/AMC_webp.webp" alt="Raw Render Asset" style="width:100%; aspect-ratio:16/9; object-fit:cover; border: 1px solid #222; display:block; margin-bottom:12px;">
+            <div style="display: flex; gap: 2.5%; width: 100%;">
+              <img src="images/fulls/AMC_webp.webp" class="modal-thumb active-thumb" onclick="switchGalleryImage(this)">
+              <img src="images/fulls/AMC_angle2.webp" class="modal-thumb" onclick="switchGalleryImage(this)">
+              <img src="images/fulls/AMC_macro.webp" class="modal-thumb" onclick="switchGalleryImage(this)">
+              <img src="images/fulls/AMC_back.webp" class="modal-thumb" onclick="switchGalleryImage(this)">
+              <img src="images/fulls/AMC_wireframe.webp" class="modal-thumb" onclick="switchGalleryImage(this)">
+            </div>
+          </div>
+        `,
+        tech: [
+          '<strong>Role:</strong> 3D Artist Rendering', 
+          '<strong>Stack:</strong> C4D / Houdini', 
+          '<strong>Method:</strong> Topology Fix, Lookdev'
+        ]
+      }
+    };
 
     function openModal(projectId) {
       const modal = document.getElementById('projectModal');
