@@ -353,6 +353,27 @@
         ]
       }
     };
+    'project-6': {
+        title: '06 // COFFEE_MACHINE',
+        brief: 'A focused lookdev and marketing imagery series for the iconic consumer espresso hardware, featuring 3 high-fidelity hero angles and 1 macroshot to subtle highlight the Brandname Logo',
+        mediaHtml: `
+          <div class="gallery-container">
+            <img id="mainGalleryImage" src="images/fulls/Airpuri_hero_frontshot.webp" alt="Home Air Purifier View" style="width:100%; aspect-ratio:16/9; object-fit:cover; border: 1px solid #222; display:block; margin-bottom:12px;">
+            <div style="display: flex; gap: 2.5%; width: 100%;">
+              <img src="images/collection_page/EC685_comp_heroshot_webp.webp" class="modal-thumb active-thumb" onclick="switchGalleryImage(this)">
+              <img src="images/collection_page/EC685_comp_frontshot__webp.webp" class="modal-thumb" onclick="switchGalleryImage(this)">
+              <img src="images/collection_page/macroshot_png_webp.webp" class="modal-thumb" onclick="switchGalleryImage(this)">
+              <img src="images/collection_page/EC685_comp_angleshot__webp.webp" class="modal-thumb" onclick="switchGalleryImage(this)">
+            </div>
+          </div>
+        `,
+        tech: [
+          '<strong>Role:</strong> 3D Lookdev Rendering', 
+          '<strong>Stack:</strong> C4D / Houdini /Substance Painter', 
+          '<strong>Method:</strong> Topology Fix, Lookdev'
+        ]
+      }
+    };
 
     function openModal(projectId) {
       const modal = document.getElementById('projectModal');
