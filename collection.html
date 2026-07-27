@@ -255,14 +255,34 @@
 
   <!-- Script Controller -->
   <script>
-    // Helper function to switch images and handle active borders dynamically
-    window.switchGalleryImage = function(thumbElement) {
-      document.getElementById('mainGalleryImage').src = thumbElement.src;
+    // Unified media switcher function handling both images and videos seamlessly
+    window.switchGalleryMedia = function(thumbElement) {
+      const mainImg = document.getElementById('mainGalleryImage');
+      const mainVid = document.getElementById('mainGalleryVideo');
+      
+      // Handle Border active swapping
       const siblings = thumbElement.parentNode.getElementsByClassName('modal-thumb');
       for (let el of siblings) {
         el.classList.remove('active-thumb');
       }
       thumbElement.classList.add('active-thumb');
+      
+      const videoSrc = thumbElement.getAttribute('data-video');
+      
+      // Toggle logic based on whether video attribute is detected
+      if (videoSrc && mainVid) {
+        if (mainImg) mainImg.style.display = 'none';
+        mainVid.style.display = 'block';
+        mainVid.src = videoSrc;
+        mainVid.play().catch(e => console.log("Autoplay context block managed: ", e));
+      } else if (mainImg) {
+        if (mainVid) {
+          mainVid.pause();
+          mainVid.style.display = 'none';
+        }
+        mainImg.style.display = 'block';
+        mainImg.src = thumbElement.src;
+      }
     };
 
     const projectData = {
@@ -286,28 +306,32 @@
           '<strong>Method:</strong> Solid Chassis Matte Pass + Internal Micro-Component Transparency Interpolation'
         ]
       },
-     'project-3': {
-    title: '03 // DAC_AUDIO_DX7',
-    brief: 'A zero-compositing, high-fidelity viewport sequence designed to validate lighting accuracy, physical material properties, and raw CAD geometry precision before post-production.',
-    mediaHtml: `
-      <div class="gallery-container">
-        <!-- Main Media Wrapper: Can switch between img and video -->
-        <div id="mainMediaContainer" style="width:100%; aspect-ratio:1/1; margin-bottom:12px; border: 1px solid #222; background: #000; overflow: hidden;">
-          <video id="mainGalleryVideo" src="images/collection_page/DAC_Audio_DX7_Social_hook_webm.webm" autoplay loop muted playsinline style="width:100%; height:100%; object-fit:cover; display:block;"></video>
-          <img id="mainGalleryImage" src="" alt="DAC_Audio_DX_render" style="width:100%; height:100%; object-fit:cover; display:none;">
-        </div>
-        
-        <!-- Thumbnails -->
-        <div style="display: flex; gap: 2.5%; width: 100%;">
-          <!-- First thumb is the video. We store the video path in data-video and use a placeholder/poster image for the src -->
-          <img src="images/fulls/AMC_webp.webp" data-video="images/fulls/8.6.mp4" class="modal-thumb active-thumb" onclick="switchGalleryMedia(this)">
-          <img src="images/collection_page/ToppingDX7_rear.webp" class="modal-thumb" onclick="switchGalleryMedia(this)">
-          <img src="images/fulls/AMC_macro.webp" class="modal-thumb" onclick="switchGalleryMedia(this)">
-          <img src="images/fulls/AMC_back.webp" class="modal-thumb" onclick="switchGalleryMedia(this)">
-          <img src="images/fulls/AMC_wireframe.webp" class="modal-thumb" onclick="switchGalleryMedia(this)">
-        </div>
-      </div>`
-},
+      'project-3': {
+        title: '03 // DAC_AUDIO_DX7',
+        brief: 'A zero-compositing, high-fidelity viewport sequence designed to validate lighting accuracy, physical material properties, and raw CAD geometry precision before post-production.',
+        mediaHtml: `
+          <div class="gallery-container">
+            <!-- Adjusted layout to match standard 16/9 aspect ratio -->
+            <div id="mainMediaContainer" style="width:100%; aspect-ratio:16/9; margin-bottom:12px; border: 1px solid #222; background: #000; overflow: hidden;">
+              <video id="mainGalleryVideo" src="images/collection_page/DAC_Audio_DX7_Social_hook_webm.webm" autoplay loop muted playsinline style="width:100%; height:100%; object-fit:cover; display:block;"></video>
+              <img id="mainGalleryImage" src="" alt="DAC_Audio_DX_render" style="width:100%; height:100%; object-fit:cover; display:none;">
+            </div>
+            
+            <!-- Thumbnails using the unified script function -->
+            <div style="display: flex; gap: 2.5%; width: 100%;">
+              <img src="images/fulls/AMC_webp.webp" data-video="images/fulls/8.6.mp4" class="modal-thumb active-thumb" onclick="switchGalleryMedia(this)">
+              <img src="images/collection_page/ToppingDX7_rear.webp" class="modal-thumb" onclick="switchGalleryMedia(this)">
+              <img src="images/fulls/AMC_macro.webp" class="modal-thumb" onclick="switchGalleryMedia(this)">
+              <img src="images/fulls/AMC_back.webp" class="modal-thumb" onclick="switchGalleryMedia(this)">
+              <img src="images/fulls/AMC_wireframe.webp" class="modal-thumb" onclick="switchGalleryMedia(this)">
+            </div>
+          </div>`,
+        tech: [
+          '<strong>Role:</strong> 3D Lookdev / Creative Direction',
+          '<strong>Stack:</strong> Cinema 4D / Redshift / Octane',
+          '<strong>Method:</strong> Ray-traced viewport texture validation and custom UI layout environment setups'
+        ]
+      },
       'project-4': {
         title: '04 // HOME CAMERA',
         brief: 'A focused lookdev and marketing imagery series for consumer IoT hardware, featuring 3 high-fidelity hero angles and 1 multi-view composite layout designed to validate premium surface finishes, optical lens clarity, material continuity, and industrial design aesthetics.',
@@ -315,10 +339,10 @@
           <div class="gallery-container">
             <img id="mainGalleryImage" src="images/fulls/homecam_hero_webp.webp" alt="Home Camera View" style="width:100%; aspect-ratio:16/9; object-fit:cover; border: 1px solid #222; display:block; margin-bottom:12px;">
             <div style="display: flex; gap: 2.5%; width: 100%;">
-              <img src="images/fulls/homecam_hero_webp.webp" class="modal-thumb active-thumb" onclick="switchGalleryImage(this)">
-              <img src="images/fulls/Homecam_45degree_hori.webp" class="modal-thumb" onclick="switchGalleryImage(this)">
-              <img src="images/fulls/Homecam_macro_hori.webp" class="modal-thumb" onclick="switchGalleryImage(this)">
-              <img src="images/fulls/Hero_v4_comp.webp" class="modal-thumb" onclick="switchGalleryImage(this)">
+              <img src="images/fulls/homecam_hero_webp.webp" class="modal-thumb active-thumb" onclick="switchGalleryMedia(this)">
+              <img src="images/fulls/Homecam_45degree_hori.webp" class="modal-thumb" onclick="switchGalleryMedia(this)">
+              <img src="images/fulls/Homecam_macro_hori.webp" class="modal-thumb" onclick="switchGalleryMedia(this)">
+              <img src="images/fulls/Hero_v4_comp.webp" class="modal-thumb" onclick="switchGalleryMedia(this)">
             </div>
           </div>
         `,
@@ -335,10 +359,10 @@
           <div class="gallery-container">
             <img id="mainGalleryImage" src="images/fulls/Airpuri_hero_frontshot.webp" alt="Home Air Purifier View" style="width:100%; aspect-ratio:16/9; object-fit:cover; border: 1px solid #222; display:block; margin-bottom:12px;">
             <div style="display: flex; gap: 2.5%; width: 100%;">
-              <img src="images/fulls/Airpuri_hero_frontshot.webp" class="modal-thumb active-thumb" onclick="switchGalleryImage(this)">
-              <img src="images/Showcase_Airpurifier/Airpuri_hero_rearshot.webp" class="modal-thumb" onclick="switchGalleryImage(this)">
-              <img src="images/Showcase_Airpurifier/Airpuri_hero_envshot.webp" class="modal-thumb" onclick="switchGalleryImage(this)">
-              <img src="images/Showcase_Airpurifier/Airpuri_lifestyle_comp.webp" class="modal-thumb" onclick="switchGalleryImage(this)">
+              <img src="images/fulls/Airpuri_hero_frontshot.webp" class="modal-thumb active-thumb" onclick="switchGalleryMedia(this)">
+              <img src="images/Showcase_Airpurifier/Airpuri_hero_rearshot.webp" class="modal-thumb" onclick="switchGalleryMedia(this)">
+              <img src="images/Showcase_Airpurifier/Airpuri_hero_envshot.webp" class="modal-thumb" onclick="switchGalleryMedia(this)">
+              <img src="images/Showcase_Airpurifier/Airpuri_lifestyle_comp.webp" class="modal-thumb" onclick="switchGalleryMedia(this)">
             </div>
           </div>
         `,
@@ -355,10 +379,10 @@
           <div class="gallery-container">
             <img id="mainGalleryImage" src="images/collection_page/EC685_comp_heroshot_webp.webp" alt="Coffee Machine View" style="width:100%; aspect-ratio:16/9; object-fit:cover; border: 1px solid #222; display:block; margin-bottom:12px;">
             <div style="display: flex; gap: 2.5%; width: 100%;">
-              <img src="images/collection_page/EC685_comp_heroshot_webp.webp" class="modal-thumb active-thumb" onclick="switchGalleryImage(this)">
-              <img src="images/collection_page/EC685_comp_frontshot__webp.webp" class="modal-thumb" onclick="switchGalleryImage(this)">
-              <img src="images/collection_page/macroshot_png_webp.webp" class="modal-thumb" onclick="switchGalleryImage(this)">
-              <img src="images/collection_page/EC685_comp_angleshot__webp.webp" class="modal-thumb" onclick="switchGalleryImage(this)">
+              <img src="images/collection_page/EC685_comp_heroshot_webp.webp" class="modal-thumb active-thumb" onclick="switchGalleryMedia(this)">
+              <img src="images/collection_page/EC685_comp_frontshot__webp.webp" class="modal-thumb" onclick="switchGalleryMedia(this)">
+              <img src="images/collection_page/macroshot_png_webp.webp" class="modal-thumb" onclick="switchGalleryMedia(this)">
+              <img src="images/collection_page/EC685_comp_angleshot__webp.webp" class="modal-thumb" onclick="switchGalleryMedia(this)">
             </div>
           </div>
         `,
