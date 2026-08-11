@@ -126,6 +126,45 @@
             border: none; 
         }
 
+        /* --- FAQ SECTION STYLES --- */
+        .faq-section {
+            padding: 80px 40px 100px;
+            background: #050505;
+            border-top: 1px solid var(--border);
+        }
+        .faq-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            padding: 30px 0;
+            text-align: left;
+        }
+        .faq-question {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: baseline;
+            gap: 15px;
+        }
+        .faq-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--accent);
+            min-width: 30px;
+        }
+        .faq-answer {
+            font-size: 0.95rem;
+            color: var(--subtext);
+            padding-left: 45px;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
         /* --- BUTTONS --- */
         .cta-btn { 
             display: inline-block; background: var(--accent); color: #000; 
@@ -152,13 +191,14 @@
             nav { padding: 15px 20px; }
             .nav-right { gap: 15px; }
             .nav-link { font-size: 0.65rem; }
-            .pipeline-grid, .motion-grid, .mosaic-gallery, .video-grid { grid-template-columns: 1fr; padding: 20px; }
+            .pipeline-grid, .motion-grid, .mosaic-gallery, .video-grid, .faq-section { grid-template-columns: 1fr; padding: 20px; }
+            .faq-answer { padding-left: 0; margin-top: 8px; }
             
             /* --- VIDEO CONTAINER MOBILE FIX --- */
             .video-container { height: 50vh; }
             .video-container iframe {
                 width: 100vw;
-                height: 56.25vw;              
+                height: 56.25vw;             
                 min-height: 50vh;             
                 min-width: 88.88vh;           
             }
@@ -299,6 +339,7 @@
         </div>
     </div>
     
+    <!-- EXTERNAL PORTFOLIO NETWORKS -->
     <section class="section-header" style="background: #050505; padding: 60px 20px 80px; border-top: 1px solid var(--border);">
         <div class="section-title" style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--accent); letter-spacing: 3px; margin-bottom: 15px;">
             // EXTERNAL PORTFOLIO NETWORKS
@@ -318,6 +359,78 @@
         </div>
     </section>
     
+    <!-- FREQUENTLY ASKED QUESTIONS (FAQ) -->
+    <section class="faq-section">
+        <header class="section-header" style="padding-top: 0; padding-bottom: 40px;">
+            <div class="section-title">// FREQUENTLY ASKED QUESTIONS</div>
+            <h2 style="font-size: 2rem; font-family: 'Space Grotesk', sans-serif; font-weight: 700; text-align: center; text-transform: uppercase;">
+                COMMON INQUIRIES
+            </h2>
+        </header>
+
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="faq-number">01.</span>
+                    <span>Do I need to send physical product samples?</span>
+                </div>
+                <div class="faq-answer">
+                    No. All we require is your native 3D/CAD engineering data (.STEP, .IGES, .SolidWorks, etc.). We optimize geometry, assign physics-based material shaders, and render 100% digitally in-house.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="faq-number">02.</span>
+                    <span>How do you handle CAD security and NDAs?</span>
+                </div>
+                <div class="faq-answer">
+                    Data security is standard protocol. We execute mutual Non-Disclosure Agreements (NDAs) prior to receiving proprietary engineering files, ensuring complete confidentiality for unreleased hardware.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="faq-number">03.</span>
+                    <span>What is your typical turnaround time?</span>
+                </div>
+                <div class="faq-answer">
+                   For a single-asset Technical 7-Second Animation Loop, delivery takes <strong>5 to 7 business days</strong> following CAD handoff. For our 4-Still Hero Image Package, standard turnaround is <strong>10 to 14 business days</strong>. Custom campaign scopes are scheduled based on project requirements.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="faq-number">04.</span>
+                    <span>What formats and aspect ratios do you deliver?</span>
+                </div>
+                <div class="faq-answer">
+                    Master outputs are delivered in 4K resolution. Standard deliverables include 9:16 Vertical (mobile/paid social) and 1:1 Square (e-commerce & web hero loops) in MP4/WebM formats.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="faq-number">05.</span>
+                    <span>Are revisions included in production?</span>
+                </div>
+                <div class="faq-answer">
+                    Yes. All fixed-rate scopes include up to 2 rounds of minor revisions (camera path adjustments, shader tweaking, or color matching) to match your exact brand guidelines.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="faq-number">06.</span>
+                    <span>Do we receive full commercial rights?</span>
+                </div>
+                <div class="faq-answer">
+                    Yes. Upon final project completion and invoice balance clearance, you receive 100% global, perpetual commercial usage rights across web, social ads, digital signage, and trade shows.
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer style="padding: 60px 40px; border-top: 1px solid var(--border); background: #050505; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: #888888;">
         <div style="max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
             <div>
@@ -330,9 +443,10 @@
             </div>
         </div>
     </footer>
+
     <!-- Start of HubSpot Embed Code -->
-  <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/246846946.js"></script>
-<!-- End of HubSpot Embed Code -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/246846946.js"></script>
+    <!-- End of HubSpot Embed Code -->
 
 </body>
 </html>
