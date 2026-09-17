@@ -11,7 +11,7 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EOS LAB | Services</title>
+    <title>EOS LAB | Technical CGI & Services</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
     
     <style>
@@ -27,7 +27,7 @@
         body { background-color: var(--bg); color: var(--text); font-family: 'Space Grotesk', sans-serif; line-height: 1.6; overflow-x: hidden; }
 
         /* Navigation */
-        nav { padding: 30px; position: fixed; width: 100%; top: 0; display: flex; justify-content: space-between; z-index: 100; backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
+        nav { padding: 30px; position: fixed; width: 100%; top: 0; display: flex; justify-content: space-between; z-index: 100; backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); background: rgba(5, 5, 5, 0.8); }
         .logo a { color: var(--accent); text-decoration: none; font-family: 'JetBrains Mono'; font-weight: 800; text-transform: uppercase; font-size: 20px; letter-spacing: 2px; }
 
         /* Sections Header Styling */
@@ -60,9 +60,13 @@
         .cta-btn { display: inline-block; background: var(--accent); color: #000; padding: 20px 45px; text-decoration: none; font-family: 'JetBrains Mono'; font-weight: 800; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s ease; }
         .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(255, 102, 0, 0.2); }
 
+        /* STANDARDIZED PACKAGES RESPONSIVE GRID */
+        .packages-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+
         .footer { padding: 60px; text-align: center; border-top: 1px solid var(--border); font-family: 'JetBrains Mono'; font-size: 0.7rem; color: #444; }
 
         @media (max-width: 900px) {
+            .packages-grid { grid-template-columns: 1fr; }
             .zigzag-row { flex-direction: column !important; text-align: left !important; gap: 20px; }
             .mosaic-gallery { grid-template-columns: repeat(2, 1fr); padding: 0 20px 60px; }
             .standout-box { margin: 0 20px 60px; padding: 40px 20px; }
@@ -79,6 +83,96 @@
     <div class="logo"><a href="index.html">EOS studio lab</a></div>
     <div class="nav-links"><a href="mailto:phong.dao@eosstudiolab.com" style="color:white; text-decoration:none; font-family: 'JetBrains Mono'; font-size: 0.8rem;">CONNECT_LAB</a></div>
 </nav>
+
+<!-- ================= ADDED TOP B2B CONVERSION SECTIONS ================= -->
+
+<!-- 1. HIGH-CONVERTING HERO HEADER -->
+<header class="section-header" style="background: #000; border-bottom: 1px solid var(--border);">
+    <div class="section-title">// TECHNICAL CGI & CAD VISUALIZATION</div>
+    <h1 style="font-size: 2.2rem; font-weight: 700; line-height: 1.2; letter-spacing: 2px; max-width: 900px; margin: 0 auto 20px; font-family: 'Space Grotesk', sans-serif; text-transform: uppercase;">
+        CAD-TO-CGI PIPELINE FOR HARDWARE & CONSUMER TECH
+    </h1>
+    <p class="section-sub" style="font-family: 'Space Grotesk', sans-serif; font-size: 1rem; max-width: 800px; color: var(--subtext); line-height: 1.8; font-weight: 300;">
+        We convert factory CAD data (.STEP, .IGES, SolidWorks) into launch-ready 4K renders, exploded technical schematics, and short-form 3D loops for smartwatch, audio, optical, and IoT hardware brands.
+    </p>
+</header>
+
+<!-- 2. STANDARDIZED PACKAGES SECTION -->
+<section style="padding: 80px 40px; background: #050505; border-bottom: 1px solid var(--border);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <div class="section-title" style="text-align: center; margin-bottom: 10px;">// CORE SERVICE PACKAGES</div>
+        <h2 style="font-size: 2rem; font-family: 'Space Grotesk'; font-weight: 700; text-align: center; margin-bottom: 50px; text-transform: uppercase;">
+            STANDARDIZED DELIVERABLES
+        </h2>
+
+        <div class="packages-grid">
+            
+            <!-- PACKAGE 1 -->
+            <div style="background: #0a0a0a; border: 1px solid var(--border); padding: 30px; border-radius: 6px; position: relative;">
+                <div style="font-family: 'JetBrains Mono'; color: var(--accent); font-size: 0.75rem; margin-bottom: 10px;">OPTION 01</div>
+                <h3 style="font-family: 'Space Grotesk'; font-size: 1.3rem; margin-bottom: 15px;">4K HERO STILL PACKAGE</h3>
+                <p style="font-size: 0.85rem; color: var(--subtext); margin-bottom: 20px; line-height: 1.6;">Designed for Shopify product pages, print ads, and Amazon brand stores.</p>
+                <ul style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #ccc; list-style: none; padding: 0; line-height: 2.2; text-align: left;">
+                    <li><span style="color: var(--accent); font-weight: bold; margin-right: 8px;">✓</span> 4x High-Res 4K Still Renders</li>
+                    <li><span style="color: var(--accent); font-weight: bold; margin-right: 8px;">✓</span> MaterialX Physics-Based Shading</li>
+                    <li><span style="color: var(--accent); font-weight: bold; margin-right: 8px;">✓</span> Studio &amp; Lifestyle Lighting Setup</li>
+                    <li><span style="color: var(--accent); font-weight: bold; margin-right: 8px;">✓</span> PNG / TIFF Transparent Backgrounds</li>
+                    <li><span style="color: var(--accent); font-weight: bold; margin-right: 8px;">✓</span> Turnaround: 7–10 Business Days</li>
+                </ul>
+            </div>
+
+            <!-- PACKAGE 2 (HIGHLIGHTED) -->
+            <div style="background: #0d0d0d; border: 1px solid var(--accent); padding: 30px; border-radius: 6px; position: relative; box-shadow: 0 0 20px rgba(255,102,0,0.15);">
+                <div style="position: absolute; top: -12px; right: 20px; background: var(--accent); color: #000; font-family: 'JetBrains Mono'; font-size: 0.65rem; font-weight: 800; padding: 2px 8px; text-transform: uppercase;">Most Popular</div>
+                <div style="font-family: 'JetBrains Mono'; color: var(--accent); font-size: 0.75rem; margin-bottom: 10px;">OPTION 02</div>
+                <h3 style="font-family: 'Space Grotesk'; font-size: 1.3rem; margin-bottom: 15px;">7S MICRO MOTION LOOP</h3>
+                <p style="font-size: 0.85rem; color: var(--subtext); margin-bottom: 20px; line-height: 1.6;">Short-form 3D animation loop for Meta performance ads and web hero banners.</p>
+                <ul style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #ccc; list-style: none; padding: 0; line-height: 2.2; text-align: left;">
+                    <li><span style="color: var(--accent); font-weight: bold; margin-right: 8px;">✓</span> 1x 5–7 Second Seamless 3D Loop</li>
+                    <li><span style="color: var(--accent); font-weight: bold; margin-right: 8px;">✓</span> Choice of Exploded / Hover / Energy Pass</li>
+                    <li><span style="color: var(--accent); font-weight: bold; margin-right: 8px;">✓</span> 9:16 Vertical + 1:1 Square Formats</li>
+                    <li><span style="color: var(--accent); font-weight: bold; margin-right: 8px;">✓</span> MP4 / WebM Web-Optimized Delivery</li>
+                    <li><span style="color: var(--accent); font-weight: bold; margin-right: 8px;">✓</span> Turnaround: 5–7 Business Days</li>
+                </ul>
+            </div>
+
+            <!-- PACKAGE 3 -->
+            <div style="background: #0a0a0a; border: 1px solid var(--border); padding: 30px; border-radius: 6px;">
+                <div style="font-family: 'JetBrains Mono'; color: var(--accent); font-size: 0.75rem; margin-bottom: 10px;">OPTION 03</div>
+                <h3 style="font-family: 'Space Grotesk'; font-size: 1.3rem; margin-bottom: 15px;">FULL HARDWARE LAUNCH SUITE</h3>
+                <p style="font-size: 0.85rem; color: var(--subtext); margin-bottom: 20px; line-height: 1.6;">Complete omnichannel launch package for Kickstarter, B2B pitch decks, and DTC campaigns.</p>
+                <ul style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #ccc; list-style: none; padding: 0; line-height: 2.2; text-align: left;">
+                    <li><span style="color: var(--accent); font-weight: bold; margin-right: 8px;">✓</span> 1x Exploded View Kinetic Loop</li>
+                    <li><span style="color: var(--accent); font-weight: bold; margin-right: 8px;">✓</span> 1x Ghost / X-Ray Topology Pass</li>
+                    <li><span style="color: var(--accent); font-weight: bold; margin-right: 8px;">✓</span> 4x 4K Hero Still Renders</li>
+                    <li><span style="color: var(--accent); font-weight: bold; margin-right: 8px;">✓</span> Full Commercial Usage Rights</li>
+                    <li><span style="color: var(--accent); font-weight: bold; margin-right: 8px;">✓</span> Priority Turnaround: 10–14 Days</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- 3. AUTONOMOUS CELL / STUDIO LEADERSHIP BLOCK -->
+<section style="padding: 80px 40px; background: #000; border-bottom: 1px solid var(--border);">
+    <div style="max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 2fr; gap: 40px; align-items: center;">
+        <div style="border: 1px solid var(--border); background: #0a0a0a; padding: 25px; text-align: center;">
+            <div style="font-family: 'JetBrains Mono'; font-size: 0.75rem; color: var(--accent); margin-bottom: 10px;">[ STUDIO LEAD ]</div>
+            <h3 style="font-family: 'Space Grotesk'; font-size: 1.3rem; font-weight: 700;">PHONG DAO</h3>
+            <p style="font-family: 'JetBrains Mono'; font-size: 0.7rem; color: var(--subtext); margin-top: 5px;">Art Director &amp; Technical CGI Lead</p>
+        </div>
+        <div>
+            <div class="section-title" style="margin-bottom: 10px;">// STUDIO OPERATING MODEL</div>
+            <h3 style="font-family: 'Space Grotesk'; font-size: 1.5rem; margin-bottom: 15px;">AUTONOMOUS TECHNICAL CELL</h3>
+            <p style="font-size: 0.9rem; color: var(--subtext); line-height: 1.8; font-weight: 300;">
+                EOS LAB operates directly under senior technical lead supervision. Every CAD model, MaterialX shader, and Houdini simulation pass is engineered directly in-house without middleman management fees. We collaborate with a dedicated extended network of audio designers and lighting specialists for full-scale commercial projects.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ================= ORIGINAL SERVICE PAGE SECTIONS BELOW ================= -->
 
 <header class="section-header">
     <div class="section-title">THE FIDELITY FRAMEWORK</div>
@@ -190,7 +284,7 @@
        target="_blank" 
        rel="noopener noreferrer" 
        class="cta-btn">
-       UNCOVER_THE_7S_LOOP_METHOD
+        UNCOVER_THE_7S_LOOP_METHOD
     </a>
 </section>
 
