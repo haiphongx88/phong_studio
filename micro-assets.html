@@ -2,36 +2,46 @@
 <html lang="en">
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NE6007V768"></script>
+    <script async src="https://tally.so/widgets/embed.js"></script>
+    <script>function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");
+o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,o.async=!0,o.defer=!0,
+o.onload=function(){window.trackingFunctions.onLoad({appId:"6a4098e880302c000c2fb9cb"})},
+document.head.appendChild(o)}initApollo();</script>
+    <meta name="p:domain_verify" content="8b60f7db34c87b64fb48d35aca404088"/>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-NE6007V768');
     </script>
+    <link rel="icon" type="image/png" href="images/fulls/favicon_3rd.png?v=2">
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EOS Studio Lab | Micro Motion 3D Assets</title>
     
     <meta name="description" content="High-end 3D product loops and cinematic micro-assets by EOS LAB.">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
     
     <style>
         :root {
+            --bg: #02204C;
+            --text: #ffffff;
             --accent: #ff6600; 
-            --border: rgba(255, 255, 255, 0.08);
             --subtext: #a0a0a0;
+            --border: rgba(255, 255, 255, 0.08);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            background-color: #02204C; 
-            color: #f8fafc; 
+            background-color: var(--bg); 
+            color: var(--text); 
             font-family: 'Space Grotesk', sans-serif;
             margin: 0;
             padding: 0;
             overflow-x: hidden;
+            line-height: 1.6;
         }
 
         /* --- NAVIGATION --- */
@@ -56,8 +66,8 @@
 
         /* --- EXPLANATION HEADER SECTION --- */
         .info-header {
-            margin-top: 100px;
-            padding: 60px 20px 40px;
+            margin-top: 80px;
+            padding: 80px 20px 50px;
             text-align: center;
             border-bottom: 1px solid var(--border);
             background: rgba(2, 6, 23, 0.4);
@@ -120,10 +130,48 @@
             line-height: 1.6;
         }
 
-        /* --- DISPLAY WRAPPER GRID --- */
+        /* --- SECTION HEADERS --- */
+        .section-header { padding: 80px 20px 40px; text-align: center; }
+        .section-title { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--accent); text-transform: uppercase; letter-spacing: 5px; margin-bottom: 15px; }
+        .section-sub { font-size: 1.1rem; color: var(--subtext); max-width: 750px; margin: 0 auto; font-weight: 300; }
+
+        /* --- 2-COLUMN VIDEO GRID (FROM INDEX) --- */
+        .video-grid { 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 20px; 
+            padding: 0 40px 60px; 
+            max-width: 1400px; 
+            margin: 0 auto; 
+        }
+        .video-item { 
+            position: relative; 
+            aspect-ratio: 16 / 9; 
+            background: #0a0a0a; 
+            border: 1px solid var(--border); 
+            border-radius: 8px;
+            overflow: hidden; 
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+        }
+        .video-item video { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            display: block; 
+            border: none; 
+        }
+        .gallery-label { 
+            position: absolute; bottom: 12px; left: 12px; 
+            font-family: 'JetBrains Mono'; font-size: 0.6rem; 
+            background: rgba(0,0,0,0.8); padding: 4px 8px; 
+            border-left: 2px solid var(--accent); 
+            z-index: 5;
+        }
+
+        /* --- DISPLAY WRAPPER SHOWCASE CONTAINER --- */
         .showcase-container {
             width: 100%;
-            padding: 60px 20px 80px; 
+            padding: 40px 20px 80px; 
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -163,15 +211,16 @@
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4); 
         }
 
-        /* --- RESPONSIVE PHONE WRAPPERS --- */
+        /* --- RESPONSIVE MOBILE FIXES --- */
         @media (max-width: 768px) {
             nav { padding: 15px 20px; }
             .nav-right { gap: 15px; }
             .nav-link { font-size: 0.65rem; }
-            .info-header { margin-top: 80px; padding: 40px 15px 30px; }
+            .info-header { margin-top: 70px; padding: 40px 15px 30px; }
             .info-title-large { font-size: 1.6rem; }
             .usecase-grid { grid-template-columns: 1fr; }
-            .showcase-container { padding: 40px 15px 40px; gap: 30px; }
+            .video-grid { grid-template-columns: 1fr; padding: 0 20px 40px; }
+            .showcase-container { padding: 20px 15px 40px; gap: 30px; }
             .video-container, .showcase-asset { border-radius: 6px; }
         }
     </style>
@@ -189,7 +238,7 @@
         </div>
     </nav>
 
-    <!-- NEW CLEAR EXPLANATION SECTION ON TOP -->
+    <!-- CLEAR EXPLANATION SECTION -->
     <header class="info-header">
         <div class="info-title-small">// WHAT IS MICRO MOTION 3D?</div>
         <h1 class="info-title-large">SHORT-FORM 3D ASSETS BUILT FOR CONVERSION</h1>
@@ -218,6 +267,29 @@
         </div>
     </header>
 
+    <!-- EXPLODED SCHEMATICS 2-COLUMN SECTION (COPIED FROM INDEX PAGE) -->
+    <header class="section-header" style="background: transparent;">
+        <div class="section-title" style="letter-spacing: 3px;">// DECONSTRUCTING COMPLEX HARDWARE</div>
+        <h2 style="font-size: 2.2rem; font-family: 'Space Grotesk', sans-serif; font-weight: 700; text-align: center; margin-bottom: 15px; text-transform: uppercase;">
+            EXPLODED SCHEMATICS
+        </h2>
+        <p class="section-sub">
+            Volumetric breakdowns and kinetic anatomy of internal architectures. Designed for technical marketing and engineering reviews.
+        </p>
+    </header>
+
+    <div class="video-grid">
+        <div class="video-item">
+            <video src="videos/Smartwatch_ExplodeView_comp_webm.webm" autoplay loop muted playsinline></video>
+            <div class="gallery-label">01 // KINETIC_DISASSEMBLY</div>
+        </div>
+        <div class="video-item">
+            <video src="videos/Anim_GhostView_webm.webm" autoplay loop muted playsinline></video>
+            <div class="gallery-label">02 // GHOST_RAY_TOPOLOGY</div>
+        </div>
+    </div>
+
+    <!-- SHOWCASE ASSETS -->
     <div class="showcase-container">
         
         <div class="video-container">
