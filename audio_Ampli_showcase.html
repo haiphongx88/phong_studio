@@ -36,7 +36,7 @@
             margin: 0; 
             padding: 0; 
             box-sizing: border-box; 
-        }
+        } 
         
         body { 
             background-color: var(--bg); 
@@ -99,30 +99,31 @@
             flex-direction: column;
         }
 
-        .visual-display-stack img,
-        .visual-display-stack iframe {
+        .visual-display-stack img {
             width: 100%;
             height: auto;
-            display: block;       
+            display: block;        
             border: none;
             margin: 0;
             padding: 0;
         }
 
+        /* UPDATED NATIVE HTML5 VIDEO WRAPPER */
         .video-wrapper {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%; 
-            height: 0;
             background: #000;
+            overflow: hidden;
         }
 
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
+        .video-wrapper video {
             width: 100%;
-            height: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            border: none;
+            margin: 0;
+            padding: 0;
         }
 
         .showcase-footer {
@@ -185,9 +186,12 @@
         <!-- VISUAL MEDIA STACK -->
         <section class="visual-display-stack">
             
-            <!-- 1. FIRST VIDEO (HERO LOOP / DAC TOPPING DX7) -->
+            <!-- 1. FIRST VIDEO (HERO LOOP / WEBM) -->
             <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/kIZoTbAUG-k?autoplay=1&mute=1&loop=1&playlist=kIZoTbAUG-k&controls=0&modestbranding=1&rel=0&playsinline=1" allow="autoplay; encrypted-media" frameborder="0"></iframe>
+                <video autoplay muted loop playsinline preload="auto">
+                    <source src="video/audio_connection.webm" type="video/webm">
+                    Your browser does not support HTML5 WebM video.
+                </video>
             </div>
 
             <!-- INTRODUCING SECTION FOR EXPLODED AUDIOPHILE VIEW -->
@@ -203,20 +207,26 @@
                 </p>
             </div>
 
-            <!-- 2. SECOND VIDEO (EXPLODED VIEW / 8IwdzyQmLb4) -->
+            <!-- 2. SECOND VIDEO (EXPLODED VIEW / WEBM) -->
             <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/8IwdzyQmLb4?autoplay=1&mute=1&loop=1&playlist=8IwdzyQmLb4&controls=0&modestbranding=1&rel=0&playsinline=1" allow="autoplay; encrypted-media" frameborder="0"></iframe>
+                <video autoplay muted loop playsinline preload="auto">
+                    <source src="video/audio_connection.webm" type="video/webm">
+                    Your browser does not support HTML5 WebM video.
+                </video>
             </div>
 
-            <!-- 3. SHOWCASE STILL IMAGES (NO LEADING SLASHES) -->
+            <!-- 3. SHOWCASE STILL IMAGES -->
             <img src="images/Showcase_Audio/Audio_hero.webp" alt="Audiophile Amplifier Cinematic Hero Render">
             <img src="images/Showcase_Audio/Audio_front.webp" alt="Audio Hardware Front Panel Anodized Aluminum View">
             <img src="images/Showcase_Audio/Epxlode_view.webp" alt="Pro Audio Hardware Exploded CAD Assembly View">
             <img src="images/Showcase_Audio/Audio_chip_explode.webp" alt="High-End Audio DAC Chipset Micro-Explosion Render">
 
-            <!-- THIRD VIDEO (viMZ7OX4i6Y) -->
+            <!-- 4. THIRD VIDEO (WEBM) -->
             <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/viMZ7OX4i6Y?autoplay=1&mute=1&loop=1&playlist=viMZ7OX4i6Y&controls=0&modestbranding=1&rel=0&playsinline=1" allow="autoplay; encrypted-media" frameborder="0"></iframe>
+                <video autoplay muted loop playsinline preload="auto">
+                    <source src="video/audio_connection.webm" type="video/webm">
+                    Your browser does not support HTML5 WebM video.
+                </video>
             </div>
 
         </section>
