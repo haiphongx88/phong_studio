@@ -13,8 +13,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <!-- 1. ADJUSTED SEO TITLE -->
     <title>Audio Hardware 3D Lookdev & Motion Showcase | EOS Studio Lab</title>
     
+    <!-- 2. ADJUSTED SEO META DESCRIPTION -->
     <meta name="description" content="Technical CGI, CAD data visualization, and surface lookdev for high-end audio hardware, synthesizers, and pro-audio gear by EOS Studio Lab.">
     <meta name="keywords" content="3D Audio CGI, Synth Product Animation, Industrial Design Visualization, Houdini Simulation, Audio Hardware, EOS LAB">
 
@@ -97,36 +99,30 @@
             flex-direction: column;
         }
 
-        .visual-display-stack img {
+        .visual-display-stack img,
+        .visual-display-stack iframe {
             width: 100%;
             height: auto;
-            display: block;        
+            display: block;       
             border: none;
             margin: 0;
             padding: 0;
         }
 
-        /* FIXED AUTO-PLAYING NATIVE HTML5 VIDEO WRAPPER */
         .video-wrapper {
             position: relative;
             width: 100%;
+            padding-bottom: 56.25%; 
+            height: 0;
             background: #000;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
 
-        .video-wrapper video {
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: auto;
-            max-width: 100%;
-            display: block;
-            object-fit: cover;
-            border: none;
-            margin: 0;
-            padding: 0;
-            outline: none;
+            height: 100%;
         }
 
         .showcase-footer {
@@ -189,13 +185,9 @@
         <!-- VISUAL MEDIA STACK -->
         <section class="visual-display-stack">
             
-            <!-- 1. FIRST VIDEO (HERO LOOP) -->
+            <!-- 1. FIRST VIDEO (HERO LOOP / DAC TOPPING DX7) -->
             <div class="video-wrapper">
-                <video autoplay muted loop playsinline disablePictureInPicture preload="auto">
-                    <source src="video/audio_connection.webm" type="video/webm">
-                    <source src="video/audio_connection.mp4" type="video/mp4">
-                    Your browser does not support HTML5 video.
-                </video>
+                <iframe src="https://www.youtube.com/embed/kIZoTbAUG-k?autoplay=1&mute=1&loop=1&playlist=kIZoTbAUG-k&controls=0&modestbranding=1&rel=0&playsinline=1" allow="autoplay; encrypted-media" frameborder="0"></iframe>
             </div>
 
             <!-- INTRODUCING SECTION FOR EXPLODED AUDIOPHILE VIEW -->
@@ -211,28 +203,33 @@
                 </p>
             </div>
 
-            <!-- 2. SECOND VIDEO (EXPLODED VIEW) -->
+            <!-- 2. SECOND VIDEO (EXPLODED VIEW / 8IwdzyQmLb4) -->
             <div class="video-wrapper">
-                <video autoplay muted loop playsinline disablePictureInPicture preload="auto">
-                    <source src="video/Audio_explodeview_filmrora.webm" type="video/webm">
-                    <source src="video/Audio_explodeview_filmrora.mp4" type="video/mp4">
-                    Your browser does not support HTML5 video.
-                </video>
+                <iframe src="https://www.youtube.com/embed/8IwdzyQmLb4?autoplay=1&mute=1&loop=1&playlist=8IwdzyQmLb4&controls=0&modestbranding=1&rel=0&playsinline=1" allow="autoplay; encrypted-media" frameborder="0"></iframe>
             </div>
 
-            <!-- 3. SHOWCASE STILL IMAGES -->
+            <!-- 3. SHOWCASE STILL IMAGES (NO LEADING SLASHES) -->
             <img src="images/Showcase_Audio/Audio_hero.webp" alt="Audiophile Amplifier Cinematic Hero Render">
             <img src="images/Showcase_Audio/Audio_front.webp" alt="Audio Hardware Front Panel Anodized Aluminum View">
             <img src="images/Showcase_Audio/Epxlode_view.webp" alt="Pro Audio Hardware Exploded CAD Assembly View">
             <img src="images/Showcase_Audio/Audio_chip_explode.webp" alt="High-End Audio DAC Chipset Micro-Explosion Render">
 
-            <!-- 4. THIRD VIDEO -->
+            <!-- SECTION DIVIDER FOR THIRD VIDEO -->
+            <div style="padding: 60px 40px 40px; text-align: center; background: #0a0a0a; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+                <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--accent); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 12px;">
+                    // CIRCUIT BOARD & COMPONENT LOOKDEV
+                </div>
+                <h2 style="font-size: 2rem; font-weight: 700; font-family: 'Space Grotesk', sans-serif; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px;">
+                    Audio Component Visualization
+                </h2>
+                <p style="font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--subtext); max-width: 750px; margin: 0 auto; line-height: 1.8;">
+                    High-precision component shading, surface micro-textures, and circuit geometry visualization for technical audiophile hardware presentations.
+                </p>
+            </div>
+
+            <!-- 4. THIRD VIDEO (viMZ7OX4i6Y - INSERTED RIGHT HERE ABOVE CONVERSION GATE) -->
             <div class="video-wrapper">
-                <video autoplay muted loop playsinline disablePictureInPicture preload="auto">
-                    <source src="video/audio_connection.webm" type="video/webm">
-                    <source src="video/audio_connection.mp4" type="video/mp4">
-                    Your browser does not support HTML5 video.
-                </video>
+                <iframe src="https://www.youtube.com/embed/viMZ7OX4i6Y?autoplay=1&mute=1&loop=1&playlist=viMZ7OX4i6Y&controls=0&modestbranding=1&rel=0&playsinline=1" allow="autoplay; encrypted-media" frameborder="0"></iframe>
             </div>
 
         </section>
@@ -319,19 +316,6 @@
         </footer>
 
     </main>
-
-    <!-- INLINE SCRIPT TO GUARANTEE AUTOPLAY ON MOBILE & SAFARI -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const videos = document.querySelectorAll('video');
-            videos.forEach(video => {
-                video.muted = true;
-                video.play().catch(error => {
-                    console.log("Autoplay forced play attempt:", error);
-                });
-            });
-        });
-    </script>
 
 </body>
 </html>
