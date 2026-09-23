@@ -13,10 +13,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- 1. ADJUSTED SEO TITLE -->
     <title>Audio Hardware 3D Lookdev & Motion Showcase | EOS Studio Lab</title>
     
-    <!-- 2. ADJUSTED SEO META DESCRIPTION -->
     <meta name="description" content="Technical CGI, CAD data visualization, and surface lookdev for high-end audio hardware, synthesizers, and pro-audio gear by EOS Studio Lab.">
     <meta name="keywords" content="3D Audio CGI, Synth Product Animation, Industrial Design Visualization, Houdini Simulation, Audio Hardware, EOS LAB">
 
@@ -108,22 +106,27 @@
             padding: 0;
         }
 
-        /* NATIVE HTML5 VIDEO WRAPPER */
+        /* FIXED AUTO-PLAYING NATIVE HTML5 VIDEO WRAPPER */
         .video-wrapper {
             position: relative;
             width: 100%;
             background: #000;
             overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .video-wrapper video {
             width: 100%;
             height: auto;
+            max-width: 100%;
             display: block;
             object-fit: cover;
             border: none;
             margin: 0;
             padding: 0;
+            outline: none;
         }
 
         .showcase-footer {
@@ -186,11 +189,12 @@
         <!-- VISUAL MEDIA STACK -->
         <section class="visual-display-stack">
             
-            <!-- 1. FIRST VIDEO (HERO LOOP / WEBM) -->
+            <!-- 1. FIRST VIDEO (HERO LOOP) -->
             <div class="video-wrapper">
-                <video autoplay muted loop playsinline preload="auto">
+                <video autoplay muted loop playsinline disablePictureInPicture preload="auto">
                     <source src="video/audio_connection.webm" type="video/webm">
-                    Your browser does not support HTML5 WebM video.
+                    <source src="video/audio_connection.mp4" type="video/mp4">
+                    Your browser does not support HTML5 video.
                 </video>
             </div>
 
@@ -207,11 +211,12 @@
                 </p>
             </div>
 
-            <!-- 2. SECOND VIDEO (EXPLODED VIEW WEBM / Audio_explodeview_filmrora.webm) -->
+            <!-- 2. SECOND VIDEO (EXPLODED VIEW) -->
             <div class="video-wrapper">
-                <video autoplay muted loop playsinline preload="auto">
+                <video autoplay muted loop playsinline disablePictureInPicture preload="auto">
                     <source src="video/Audio_explodeview_filmrora.webm" type="video/webm">
-                    Your browser does not support HTML5 WebM video.
+                    <source src="video/Audio_explodeview_filmrora.mp4" type="video/mp4">
+                    Your browser does not support HTML5 video.
                 </video>
             </div>
 
@@ -221,11 +226,12 @@
             <img src="images/Showcase_Audio/Epxlode_view.webp" alt="Pro Audio Hardware Exploded CAD Assembly View">
             <img src="images/Showcase_Audio/Audio_chip_explode.webp" alt="High-End Audio DAC Chipset Micro-Explosion Render">
 
-            <!-- 4. THIRD VIDEO (WEBM) -->
+            <!-- 4. THIRD VIDEO -->
             <div class="video-wrapper">
-                <video autoplay muted loop playsinline preload="auto">
+                <video autoplay muted loop playsinline disablePictureInPicture preload="auto">
                     <source src="video/audio_connection.webm" type="video/webm">
-                    Your browser does not support HTML5 WebM video.
+                    <source src="video/audio_connection.mp4" type="video/mp4">
+                    Your browser does not support HTML5 video.
                 </video>
             </div>
 
@@ -313,6 +319,19 @@
         </footer>
 
     </main>
+
+    <!-- INLINE SCRIPT TO GUARANTEE AUTOPLAY ON MOBILE & SAFARI -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const videos = document.querySelectorAll('video');
+            videos.forEach(video => {
+                video.muted = true;
+                video.play().catch(error => {
+                    console.log("Autoplay forced play attempt:", error);
+                });
+            });
+        });
+    </script>
 
 </body>
 </html>
