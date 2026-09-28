@@ -55,32 +55,6 @@
             height: 500px;
             background-color: #151922;
         }
-        /* Features Grid */
-        <!-- Interactive 3D Model Display -->
-        <div class="viewer-card">
-            <model-viewer 
-                src="assets/smartwatch_AR.glb" 
-                ar 
-                ar-modes="webxr scene-viewer quick-look" 
-                camera-controls 
-                tone-mapping="neutral" 
-                poster="assets/poster.webp" 
-                shadow-intensity="0.94" 
-                exposure="2" 
-                environment-image="assets/DayEnvironmentHDRI067.png" 
-                shadow-softness="0.63" 
-                skybox-image="assets/DayEnvironmentHDRI067.png">
-                <div class="progress-bar hide" slot="progress-bar">
-                    <div class="update-bar"></div>
-                </div>
-                <button slot="ar-button" id="ar-button">
-                    View in your space
-                </button>
-                <div id="ar-prompt">
-                    <img src="https://modelviewer.dev/shared-assets/icons/hand.png">
-                </div>
-            </model-viewer>
-        </div>
         .features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -133,7 +107,7 @@
     <div class="container">
         <header>
             <h1>CAD-to-WebAR Asset Pipeline</h1>
-            <p class="subtitle">High-performance 3D asset conversion for OEMs and consumer hardware. Lightweight WebGL optimization (<5MB) with 1:1 photoreal fidelity.</p>
+            <p class="subtitle">High-performance 3D asset conversion for OEMs and consumer hardware. Lightweight WebGL optimization (&lt;5MB) with 1:1 photoreal fidelity.</p>
         </header>
 
         <!-- Interactive 3D Model Display -->
@@ -143,11 +117,22 @@
                 ar 
                 ar-modes="webxr scene-viewer quick-look" 
                 camera-controls 
-                tone-mapping="neutral"
-                shadow-intensity="1"
-                shadow-softness="0.8"
-                auto-rotate>
-                <div slot="progress-bar"></div>
+                tone-mapping="neutral" 
+                poster="assets/poster.webp" 
+                shadow-intensity="0.94" 
+                exposure="2" 
+                environment-image="assets/DayEnvironmentHDRI067.png" 
+                shadow-softness="0.63" 
+                skybox-image="assets/DayEnvironmentHDRI067.png">
+                <div class="progress-bar hide" slot="progress-bar">
+                    <div class="update-bar"></div>
+                </div>
+                <button slot="ar-button" id="ar-button">
+                    View in your space
+                </button>
+                <div id="ar-prompt">
+                    <img src="https://modelviewer.dev/shared-assets/icons/hand.png">
+                </div>
             </model-viewer>
         </div>
 
@@ -171,7 +156,7 @@
         <div class="cta-section">
             <h2>Ready to Elevate Your Hardware Product Pages?</h2>
             <p style="color: #c5c6c7; margin-top: 8px;">Let's audit your CAD pipeline and convert your assets for Shopify, Webflow, or custom web apps.</p>
-            <a href="mailto:your-email@domain.com" class="cta-button">Request a 3D Pipeline Audit</a>
+            <a href="mailto:phong@eoststudiolab.com" class="cta-button">Request a 3D Pipeline Audit</a>
         </div>
     </div>
 
