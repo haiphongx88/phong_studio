@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WebAR & Interactive 3D Assets | Phong Studio</title>
-    <!-- Google Model-Viewer Web Component (NO PLUGIN NEEDED - BUILT-IN WEBGL/WEBXR) -->
+    <!-- Google Model-Viewer Web Component -->
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
     <style>
         * {
@@ -125,25 +125,29 @@
             <p class="subtitle">High-performance 3D asset conversion for OEMs and consumer hardware. Lightweight WebGL optimization (&lt;5MB) with 1:1 photoreal fidelity.</p>
         </header>
 
-        <model-viewer 
-    src="images/WebAR/smartwatch_AR_v2.glb" 
-    ar 
-    ar-modes="webxr scene-viewer quick-look" 
-    camera-controls 
-    tone-mapping="neutral" 
-    poster="images/WebAR/poster.webp" 
-    shadow-intensity="1"
-    auto-rotate>
-    <div class="progress-bar hide" slot="progress-bar">
-        <div class="update-bar"></div>
-    </div>
-    <button slot="ar-button" id="ar-button">
-        View in your space
-    </button>
-    <div id="ar-prompt">
-        <img src="https://modelviewer.dev/shared-assets/icons/hand.png">
-    </div>
-</model-viewer>
+        <!-- 3D Model Viewer Card -->
+        <div class="viewer-card">
+            <model-viewer 
+                src="images/WebAR/smartwatch_AR _v2.glb" 
+                environment-image="images/WebAR/DayEnvironmentHDRI067_2K_TONEMAPPED.jpg"
+                ar 
+                ar-modes="webxr scene-viewer quick-look" 
+                camera-controls 
+                tone-mapping="neutral" 
+                shadow-intensity="1"
+                exposure="1.8"
+                auto-rotate>
+                <div class="progress-bar hide" slot="progress-bar">
+                    <div class="update-bar"></div>
+                </div>
+                <button slot="ar-button" id="ar-button">
+                    View in your space
+                </button>
+                <div id="ar-prompt">
+                    <img src="https://modelviewer.dev/shared-assets/icons/hand.png">
+                </div>
+            </model-viewer>
+        </div>
 
         <!-- Technical Value Specs -->
         <div class="features">
