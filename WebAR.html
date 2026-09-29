@@ -41,6 +41,22 @@
             max-width: 650px;
             margin: 0 auto;
         }
+        
+        /* Section Titles */
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        .section-subtitle {
+            font-size: 1rem;
+            color: #c5c6c7;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
         /* 3D Model Viewer Container */
         .viewer-card {
             background: #1f2833;
@@ -51,14 +67,74 @@
             margin-bottom: 50px;
             position: relative;
         }
-      model-viewer {
-    width: 100%;
-    height: 550px;
-    background-color: #151922;
-    /* Sharpen and smooth WebGL canvas scaling on desktop */
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
-}
+        model-viewer {
+            width: 100%;
+            height: 550px;
+            background-color: #151922;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+        }
+
+        /* Color Variant Swatch Bar Overlay */
+        .variant-swatch-bar {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(11, 12, 16, 0.85);
+            padding: 10px 20px;
+            border-radius: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(102, 252, 241, 0.3);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+            z-index: 10;
+        }
+        .variant-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #c5c6c7;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-right: 4px;
+        }
+        .swatch-btn {
+            background: #1f2833;
+            color: #c5c6c7;
+            border: 1px solid #45a29e;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .swatch-btn:hover {
+            background: #45a29e;
+            color: #0b0c10;
+        }
+        .swatch-btn.active {
+            background: #66fcf1;
+            color: #0b0c10;
+            border-color: #66fcf1;
+            box-shadow: 0 0 12px rgba(102, 252, 241, 0.5);
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .dot-silver { background: #d0d5dd; }
+        .dot-bronze { background: #8C6239; }
+        .dot-midnight { background: #1B263B; }
+
         /* AR Button Styling */
         #ar-button {
             background-color: #66fcf1;
@@ -94,6 +170,7 @@
             color: #c5c6c7;
             font-size: 0.95rem;
         }
+        
         /* Call to Action */
         .cta-section {
             text-align: center;
@@ -128,7 +205,7 @@
             <p class="subtitle">High-performance 3D asset conversion for OEMs and consumer hardware. Lightweight WebGL optimization (&lt;5MB) with 1:1 photoreal fidelity.</p>
         </header>
 
-        <!-- 3D Model Viewer Card -->
+        <!-- 1. Hero 3D Model Viewer Card (Base Geometry) -->
         <div class="viewer-card">
             <model-viewer 
                 src="images/WebAR/smartwatch_AR _v2.glb" 
@@ -148,6 +225,44 @@
                 </button>
                 <div id="ar-prompt">
                     <img src="https://modelviewer.dev/shared-assets/icons/hand.png">
+                </div>
+            </model-viewer>
+        </div>
+
+        <!-- 2. NEW SECTION: Interactive Color Variant Showcase -->
+        <h2 class="section-title">Interactive Color Variant Pipeline</h2>
+        <p class="section-subtitle">Real-time texture-swapping on a single geometry stream (&lt;5MB). Zero extra mesh loading for multi-SKU e-commerce.</p>
+
+        <div class="viewer-card">
+            <model-viewer 
+                id="variant-viewer"
+                src="images/WebAR/Smartwatch/smartwatch_AR_variant.glb" 
+                environment-image="images/WebAR/DayEnvironmentHDRI067_2K_TONEMAPPED.jpg"
+                ar 
+                ar-modes="webxr scene-viewer quick-look" 
+                camera-controls 
+                tone-mapping="commerce" 
+                shadow-intensity="1"
+                shadow-softness="1"
+                exposure="1.2"
+                auto-rotate>
+                
+                <div class="progress-bar hide" slot="progress-bar">
+                    <div class="update-bar"></div>
+                </div>
+
+                <!-- Color Variant Swatch Buttons Overlay -->
+                <div class="variant-swatch-bar">
+                    <span class="variant-title">Colorways:</span>
+                    <button class="swatch-btn active" onclick="swapWatchTexture('images/WebAR/Smartwatch/Smartwatch_baseColor.png', this)">
+                        <span class="dot dot-silver"></span> Silver
+                    </button>
+                    <button class="swatch-btn" onclick="swapWatchTexture('images/WebAR/Smartwatch/Smartwatch_baseColor_varBronze.png', this)">
+                        <span class="dot dot-bronze"></span> Bronze
+                    </button>
+                    <button class="swatch-btn" onclick="swapWatchTexture('images/WebAR/Smartwatch/Smartwatch_baseColor_varMidnight.png', this)">
+                        <span class="dot dot-midnight"></span> Midnight
+                    </button>
                 </div>
             </model-viewer>
         </div>
@@ -175,6 +290,29 @@
             <a href="mailto:phong@eoststudiolab.com" class="cta-button">Request a 3D Pipeline Audit</a>
         </div>
     </div>
+
+    <!-- Live Texture-Swapping JavaScript Logic -->
+    <script>
+    async function swapWatchTexture(textureUrl, btnElement) {
+        const viewer = document.querySelector('#variant-viewer');
+        
+        // Update active UI state for swatch buttons
+        document.querySelectorAll('.swatch-btn').forEach(btn => btn.classList.remove('active'));
+        if (btnElement) {
+            btnElement.classList.add('active');
+        }
+
+        // Dynamically load the PNG texture map and swap it onto the primary material slot
+        try {
+            const newTexture = await viewer.createTexture(textureUrl);
+            if (viewer.model && viewer.model.materials.length > 0) {
+                viewer.model.materials[0].pbrMetallicRoughness.baseColorTexture.setTexture(newTexture);
+            }
+        } catch (err) {
+            console.error("Failed to swap texture:", err);
+        }
+    }
+    </script>
 
 </body>
 </html>
