@@ -75,6 +75,12 @@
             image-rendering: crisp-edges;
         }
 
+        /* CUSTOM STUDIO BACKGROUND FOR VARIANT VIEWER */
+        #variant-viewer {
+            /* High-contrast dark studio gradient spotlight background */
+            background: radial-gradient(circle at center, #2a3441 0%, #0f1319 100%);
+        }
+
         /* Color Variant Swatch Bar Overlay */
         .variant-swatch-bar {
             position: absolute;
@@ -229,36 +235,36 @@
             </model-viewer>
         </div>
 
-        <!-- 2. NEW SECTION: Interactive Color Variant Showcase -->
+        <!-- 2. Interactive Color Variant Showcase -->
         <h2 class="section-title">Interactive Color Variant Pipeline</h2>
         <p class="section-subtitle">Real-time texture-swapping on a single geometry stream (&lt;5MB). Zero extra mesh loading for multi-SKU e-commerce.</p>
 
         <div class="viewer-card">
-<model-viewer 
-    id="variant-viewer"
-    src="images/WebAR/Smartwatch/smartwatch_AR _variant.glb" 
-    environment-image="images/WebAR/Smartwatch/DayEnvironmentHDRI067_2K_TONEMAPPED.jpg"
-    ar 
-    ar-modes="webxr scene-viewer quick-look" 
-    camera-controls 
-    tone-mapping="neutral" 
-    shadow-intensity="1"
-    shadow-softness="0.8"
-    exposure="1.8"
-    auto-rotate>
+            <model-viewer 
+                id="variant-viewer"
+                src="images/WebAR/Smartwatch/smartwatch_AR_variant.glb" 
+                environment-image="images/WebAR/Smartwatch/DayEnvironmentHDRI067_2K_TONEMAPPED.jpg"
+                ar 
+                ar-modes="webxr scene-viewer quick-look" 
+                camera-controls 
+                tone-mapping="neutral" 
+                shadow-intensity="1"
+                shadow-softness="0.8"
+                exposure="1.8"
+                auto-rotate>
                 
-               <div class="variant-swatch-bar">
-    <span class="variant-title">Colorways:</span>
-    <button class="swatch-btn active" onclick="swapWatchTexture('images/WebAR/Smartwatch/Smartwatch_baseColor.png', this)">
-        <span class="dot dot-silver"></span> Silver
-    </button>
-    <button class="swatch-btn" onclick="swapWatchTexture('images/WebAR/Smartwatch/Smartwatch_baseColor_varBronze.png', this)">
-        <span class="dot dot-bronze"></span> Bronze
-    </button>
-    <button class="swatch-btn" onclick="swapWatchTexture('images/WebAR/Smartwatch/Smartwatch_baseColor_varMidnight.png', this)">
-        <span class="dot dot-midnight"></span> Midnight
-    </button>
-</div>
+                <div class="variant-swatch-bar">
+                    <span class="variant-title">Colorways:</span>
+                    <button class="swatch-btn active" onclick="swapWatchTexture('images/WebAR/Smartwatch/Smartwatch_baseColor.png', this)">
+                        <span class="dot dot-silver"></span> Silver
+                    </button>
+                    <button class="swatch-btn" onclick="swapWatchTexture('images/WebAR/Smartwatch/Smartwatch_baseColor_varBronze.png', this)">
+                        <span class="dot dot-bronze"></span> Bronze
+                    </button>
+                    <button class="swatch-btn" onclick="swapWatchTexture('images/WebAR/Smartwatch/Smartwatch_baseColor_varMidnight.png', this)">
+                        <span class="dot dot-midnight"></span> Midnight
+                    </button>
+                </div>
             </model-viewer>
         </div>
 
