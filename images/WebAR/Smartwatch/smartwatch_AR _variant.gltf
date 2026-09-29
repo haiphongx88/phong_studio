@@ -1,0 +1,188 @@
+{
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 100806,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 19716,
+      "max": [
+        0.04329963773489,
+        0.0144260786473751,
+        0.0687740668654442
+      ],
+      "min": [
+        -0.0380056388676167,
+        -0.100093983113766,
+        -0.0685266330838203
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 19716,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 19716,
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 4,
+      "componentType": 5126,
+      "count": 19716,
+      "type": "VEC2"
+    }
+  ],
+  "asset": {
+    "generator": "Adobe Substance 3D Painter 11.0.1",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 403224,
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 236592,
+      "byteOffset": 403224,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 236592,
+      "byteOffset": 639816,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 315456,
+      "byteOffset": 876408,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 157728,
+      "byteOffset": 1191864,
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 1349592,
+      "uri": "smartwatch_AR _variant.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "Smartwatch_baseColor.png"
+    },
+    {
+      "uri": "Smartwatch_occlusionRoughnessMetallic.png"
+    },
+    {
+      "uri": "Smartwatch_normal.png"
+    }
+  ],
+  "materials": [
+    {
+      "alphaMode": "OPAQUE",
+      "name": "Smartwatch",
+      "normalTexture": {
+        "index": 2
+      },
+      "occlusionTexture": {
+        "index": 1
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicRoughnessTexture": {
+          "index": 1
+        }
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "normal4",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 2,
+            "POSITION": 1,
+            "TANGENT": 3,
+            "TEXCOORD_0": 4
+          },
+          "indices": 0,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "name": "RootNode",
+      "scale": [
+        0.00999999977648258,
+        0.00999999977648258,
+        0.00999999977648258
+      ]
+    },
+    {
+      "children": [
+        2
+      ],
+      "name": "normal4"
+    },
+    {
+      "mesh": 0,
+      "name": "normal4"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9985,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    }
+  ]
+}
